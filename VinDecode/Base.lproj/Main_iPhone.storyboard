@@ -100,58 +100,68 @@
             </objects>
             <point key="canvasLocation" x="-538" y="65"/>
         </scene>
-        <!--Table View Controller - Add Vehicle Workflow-->
+        <!--Ki Taxonomy View Controller - Select Trim/Style/OEM-->
         <scene sceneID="rx1-dj-zYx">
             <objects>
-                <tableViewController id="Frd-tg-RsC" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tl1-dS-TWk">
+                <tableViewController id="Frd-tg-RsC" customClass="VCKiTaxonomyViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="22" sectionFooterHeight="22" id="tl1-dS-TWk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nRr-93-rnb">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taxonomyCell" textLabel="YWb-BO-RVo" detailTextLabel="mbJ-wa-KWx" rowHeight="41" style="IBUITableViewCellStyleSubtitle" id="nRr-93-rnb">
+                                <rect key="frame" x="0.0" y="86" width="320" height="41"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nRr-93-rnb" id="RiB-WW-VzP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YWb-BO-RVo">
+                                            <rect key="frame" x="15" y="3" width="31" height="20"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mbJ-wa-KWx">
+                                            <rect key="frame" x="15" y="23" width="32" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ls0-rf-hIt" kind="push" id="JEL-Nh-pbv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Vehicle Workflow" id="XyB-sU-DlR"/>
+                    <navigationItem key="navigationItem" title="Select Trim/Style/OEM" id="XyB-sU-DlR"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUm-8D-A8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="459" y="403"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="fx4-fY-Qho">
+        <!--View Controller - Choose Options-->
+        <scene sceneID="yfC-U2-rya">
             <objects>
-                <tableViewController id="WQN-jG-qYS" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iLN-Pa-HzG">
+                <viewController id="Ls0-rf-hIt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xY5-no-vZj"/>
+                        <viewControllerLayoutGuide type="bottom" id="0uy-a6-vz2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eWS-g3-viQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pFl-sA-7sJ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFl-sA-7sJ" id="KyE-Xj-iEp">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WQN-jG-qYS" id="c7o-45-Aui"/>
-                            <outlet property="delegate" destination="WQN-jG-qYS" id="rdA-fi-ZMY"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2qm-bp-Azw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Choose Options" id="2Qb-ho-grw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ukI-hV-XFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="403"/>
+            <point key="canvasLocation" x="951" y="403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="INk-XE-5Q3">
