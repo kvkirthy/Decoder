@@ -15,6 +15,7 @@
 
 @implementation VCKiTaxonomyViewController
 
+BOOL isSegueAllowed;
 NSArray *_taxonomyRecords;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,6 +32,7 @@ NSArray *_taxonomyRecords;
     [super viewDidLoad];
     
     _taxonomyRecords = [[[VCKiTaxonomyEntity alloc]init] getTaxonomyEntities];
+    isSegueAllowed = YES;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,11 +51,15 @@ NSArray *_taxonomyRecords;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == 0)
+    {
+        return 1;
+    }
     return _taxonomyRecords.count;
 }
 
@@ -62,13 +68,20 @@ NSArray *_taxonomyRecords;
     static NSString *CellIdentifier = @"taxonomyCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    VCKiTaxonomyEntity* entity = [_taxonomyRecords objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", entity.Trim, entity.Style ];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", entity.OEMModelCode ];
-    //cell.title.text =
-    
+    if (indexPath.section == 1) {
+        
+        VCKiTaxonomyEntity* entity = [_taxonomyRecords objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", entity.Trim, entity.Style ];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", entity.OEMModelCode ];
+        //cell.title.text =
+    }
+    else if(indexPath.section == 0){
+        cell.textLabel.text = @"Vehicle Year Make Model here";
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
     return cell;
+    
 }
 
 /*
@@ -121,5 +134,20 @@ NSArray *_taxonomyRecords;
 }
 
  */
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    /*
+    UITableViewCell *cell = sender;
+    UITableView *table = (UITableView*)[cell superview];
+    NSIndexPath* index =[table indexPathForCell:cell];
+    
+    if([index section] == 0)
+    {
+        return NO;
+    }
+    return YES;
+     */
+}
 
 @end
