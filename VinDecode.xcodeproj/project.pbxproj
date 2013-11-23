@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		106B74E718213DB30039BF0F /* 195-barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74E618213DB30039BF0F /* 195-barcode.png */; };
+		106B74E918213E4A0039BF0F /* 162-receipt.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74E818213E4A0039BF0F /* 162-receipt.png */; };
+		106B74EC18215DF40039BF0F /* VCKiBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106B74EB18215DF40039BF0F /* VCKiBarcodeViewController.m */; };
+		106B74F218217B590039BF0F /* Barcode Icon 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74EF18217B590039BF0F /* Barcode Icon 58.png */; };
+		106B74F318217B590039BF0F /* Barcode Icon 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74F018217B590039BF0F /* Barcode Icon 80.png */; };
+		106B74F418217B590039BF0F /* Barcode Icon 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74F118217B590039BF0F /* Barcode Icon 120.png */; };
+		106B74F618217BFF0039BF0F /* Barcode Icon 76.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74F518217BFF0039BF0F /* Barcode Icon 76.png */; };
+		106B74F818217C780039BF0F /* Barcode Icon 152.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74F718217C780039BF0F /* Barcode Icon 152.png */; };
+		106BA48A181CDFD000112998 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA489181CDFD000112998 /* Foundation.framework */; };
+		106BA48C181CDFD000112998 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA48B181CDFD000112998 /* CoreGraphics.framework */; };
+		106BA48E181CDFD000112998 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA48D181CDFD000112998 /* UIKit.framework */; };
+		106BA494181CDFD000112998 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 106BA492181CDFD000112998 /* InfoPlist.strings */; };
+		106BA496181CDFD000112998 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA495181CDFD000112998 /* main.m */; };
+		106BA49A181CDFD000112998 /* VCKiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA499181CDFD000112998 /* VCKiAppDelegate.m */; };
+		106BA49D181CDFD000112998 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106BA49B181CDFD000112998 /* Main_iPhone.storyboard */; };
+		106BA4A0181CDFD000112998 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106BA49E181CDFD000112998 /* Main_iPad.storyboard */; };
+		106BA4A3181CDFD000112998 /* VCKiOcrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA4A2181CDFD000112998 /* VCKiOcrViewController.m */; };
+		106BA4A5181CDFD000112998 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4A4181CDFD000112998 /* Images.xcassets */; };
+		106BA4AC181CDFD000112998 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA4AB181CDFD000112998 /* XCTest.framework */; };
+		106BA4AD181CDFD000112998 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA489181CDFD000112998 /* Foundation.framework */; };
+		106BA4AE181CDFD000112998 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA48D181CDFD000112998 /* UIKit.framework */; };
+		106BA4B6181CDFD000112998 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4B4181CDFD000112998 /* InfoPlist.strings */; };
+		106BA4B8181CDFD000112998 /* VinDecodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA4B7181CDFD000112998 /* VinDecodeTests.m */; };
+		106BA4C2181CFA6B00112998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4C1181CFA6B00112998 /* Settings.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		106BA4AF181CDFD000112998 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 106BA47E181CDFD000112998 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 106BA485181CDFD000112998;
+			remoteInfo = VinDecode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		106B74E618213DB30039BF0F /* 195-barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "195-barcode.png"; sourceTree = "<group>"; };
+		106B74E818213E4A0039BF0F /* 162-receipt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "162-receipt.png"; sourceTree = "<group>"; };
+		106B74EA18215DF40039BF0F /* VCKiBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiBarcodeViewController.h; sourceTree = "<group>"; };
+		106B74EB18215DF40039BF0F /* VCKiBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiBarcodeViewController.m; sourceTree = "<group>"; };
+		106B74EF18217B590039BF0F /* Barcode Icon 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barcode Icon 58.png"; sourceTree = "<group>"; };
+		106B74F018217B590039BF0F /* Barcode Icon 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barcode Icon 80.png"; sourceTree = "<group>"; };
+		106B74F118217B590039BF0F /* Barcode Icon 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barcode Icon 120.png"; sourceTree = "<group>"; };
+		106B74F518217BFF0039BF0F /* Barcode Icon 76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barcode Icon 76.png"; sourceTree = "<group>"; };
+		106B74F718217C780039BF0F /* Barcode Icon 152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barcode Icon 152.png"; sourceTree = "<group>"; };
+		106BA486181CDFD000112998 /* VinDecode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VinDecode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		106BA489181CDFD000112998 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		106BA48B181CDFD000112998 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		106BA48D181CDFD000112998 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		106BA491181CDFD000112998 /* VinDecode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VinDecode-Info.plist"; sourceTree = "<group>"; };
+		106BA493181CDFD000112998 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		106BA495181CDFD000112998 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		106BA497181CDFD000112998 /* VinDecode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VinDecode-Prefix.pch"; sourceTree = "<group>"; };
+		106BA498181CDFD000112998 /* VCKiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiAppDelegate.h; sourceTree = "<group>"; };
+		106BA499181CDFD000112998 /* VCKiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCKiAppDelegate.m; sourceTree = "<group>"; };
+		106BA49C181CDFD000112998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		106BA49F181CDFD000112998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		106BA4A1181CDFD000112998 /* VCKiOcrViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiOcrViewController.h; sourceTree = "<group>"; };
+		106BA4A2181CDFD000112998 /* VCKiOcrViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCKiOcrViewController.m; sourceTree = "<group>"; };
+		106BA4A4181CDFD000112998 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		106BA4AA181CDFD000112998 /* VinDecodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VinDecodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		106BA4AB181CDFD000112998 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		106BA4B3181CDFD000112998 /* VinDecodeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VinDecodeTests-Info.plist"; sourceTree = "<group>"; };
+		106BA4B5181CDFD000112998 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		106BA4B7181CDFD000112998 /* VinDecodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VinDecodeTests.m; sourceTree = "<group>"; };
+		106BA4C1181CFA6B00112998 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		106BA483181CDFD000112998 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106BA48C181CDFD000112998 /* CoreGraphics.framework in Frameworks */,
+				106BA48E181CDFD000112998 /* UIKit.framework in Frameworks */,
+				106BA48A181CDFD000112998 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		106BA4A7181CDFD000112998 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106BA4AC181CDFD000112998 /* XCTest.framework in Frameworks */,
+				106BA4AE181CDFD000112998 /* UIKit.framework in Frameworks */,
+				106BA4AD181CDFD000112998 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		106B74E118213CE10039BF0F /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				106B74F718217C780039BF0F /* Barcode Icon 152.png */,
+				106B74F518217BFF0039BF0F /* Barcode Icon 76.png */,
+				106B74EF18217B590039BF0F /* Barcode Icon 58.png */,
+				106B74F018217B590039BF0F /* Barcode Icon 80.png */,
+				106B74F118217B590039BF0F /* Barcode Icon 120.png */,
+				106B74E818213E4A0039BF0F /* 162-receipt.png */,
+				106B74E618213DB30039BF0F /* 195-barcode.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		106BA47D181CDFD000112998 = {
+			isa = PBXGroup;
+			children = (
+				106BA4C1181CFA6B00112998 /* Settings.bundle */,
+				106BA48F181CDFD000112998 /* VinDecode */,
+				106BA4B1181CDFD000112998 /* VinDecodeTests */,
+				106BA488181CDFD000112998 /* Frameworks */,
+				106BA487181CDFD000112998 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		106BA487181CDFD000112998 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				106BA486181CDFD000112998 /* VinDecode.app */,
+				106BA4AA181CDFD000112998 /* VinDecodeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		106BA488181CDFD000112998 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				106BA489181CDFD000112998 /* Foundation.framework */,
+				106BA48B181CDFD000112998 /* CoreGraphics.framework */,
+				106BA48D181CDFD000112998 /* UIKit.framework */,
+				106BA4AB181CDFD000112998 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		106BA48F181CDFD000112998 /* VinDecode */ = {
+			isa = PBXGroup;
+			children = (
+				106BA49B181CDFD000112998 /* Main_iPhone.storyboard */,
+				106BA49E181CDFD000112998 /* Main_iPad.storyboard */,
+				107D633718409D930070F01A /* ViewControllers */,
+				106B74E118213CE10039BF0F /* icons */,
+				106BA498181CDFD000112998 /* VCKiAppDelegate.h */,
+				106BA499181CDFD000112998 /* VCKiAppDelegate.m */,
+				106BA4A4181CDFD000112998 /* Images.xcassets */,
+				106BA490181CDFD000112998 /* Supporting Files */,
+			);
+			path = VinDecode;
+			sourceTree = "<group>";
+		};
+		106BA490181CDFD000112998 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				106BA491181CDFD000112998 /* VinDecode-Info.plist */,
+				106BA492181CDFD000112998 /* InfoPlist.strings */,
+				106BA495181CDFD000112998 /* main.m */,
+				106BA497181CDFD000112998 /* VinDecode-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		106BA4B1181CDFD000112998 /* VinDecodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				106BA4B7181CDFD000112998 /* VinDecodeTests.m */,
+				106BA4B2181CDFD000112998 /* Supporting Files */,
+			);
+			path = VinDecodeTests;
+			sourceTree = "<group>";
+		};
+		106BA4B2181CDFD000112998 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				106BA4B3181CDFD000112998 /* VinDecodeTests-Info.plist */,
+				106BA4B4181CDFD000112998 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		107D633718409D930070F01A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				106B74EA18215DF40039BF0F /* VCKiBarcodeViewController.h */,
+				106B74EB18215DF40039BF0F /* VCKiBarcodeViewController.m */,
+				106BA4A1181CDFD000112998 /* VCKiOcrViewController.h */,
+				106BA4A2181CDFD000112998 /* VCKiOcrViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		106BA485181CDFD000112998 /* VinDecode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 106BA4BB181CDFD000112998 /* Build configuration list for PBXNativeTarget "VinDecode" */;
+			buildPhases = (
+				106BA482181CDFD000112998 /* Sources */,
+				106BA483181CDFD000112998 /* Frameworks */,
+				106BA484181CDFD000112998 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VinDecode;
+			productName = VinDecode;
+			productReference = 106BA486181CDFD000112998 /* VinDecode.app */;
+			productType = "com.apple.product-type.application";
+		};
+		106BA4A9181CDFD000112998 /* VinDecodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 106BA4BE181CDFD000112998 /* Build configuration list for PBXNativeTarget "VinDecodeTests" */;
+			buildPhases = (
+				106BA4A6181CDFD000112998 /* Sources */,
+				106BA4A7181CDFD000112998 /* Frameworks */,
+				106BA4A8181CDFD000112998 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				106BA4B0181CDFD000112998 /* PBXTargetDependency */,
+			);
+			name = VinDecodeTests;
+			productName = VinDecodeTests;
+			productReference = 106BA4AA181CDFD000112998 /* VinDecodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		106BA47E181CDFD000112998 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VCKi;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = VenCKi;
+				TargetAttributes = {
+					106BA4A9181CDFD000112998 = {
+						TestTargetID = 106BA485181CDFD000112998;
+					};
+				};
+			};
+			buildConfigurationList = 106BA481181CDFD000112998 /* Build configuration list for PBXProject "VinDecode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 106BA47D181CDFD000112998;
+			productRefGroup = 106BA487181CDFD000112998 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				106BA485181CDFD000112998 /* VinDecode */,
+				106BA4A9181CDFD000112998 /* VinDecodeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		106BA484181CDFD000112998 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106B74E718213DB30039BF0F /* 195-barcode.png in Resources */,
+				106BA4A0181CDFD000112998 /* Main_iPad.storyboard in Resources */,
+				106BA4A5181CDFD000112998 /* Images.xcassets in Resources */,
+				106B74E918213E4A0039BF0F /* 162-receipt.png in Resources */,
+				106B74F818217C780039BF0F /* Barcode Icon 152.png in Resources */,
+				106B74F618217BFF0039BF0F /* Barcode Icon 76.png in Resources */,
+				106B74F218217B590039BF0F /* Barcode Icon 58.png in Resources */,
+				106BA4C2181CFA6B00112998 /* Settings.bundle in Resources */,
+				106B74F318217B590039BF0F /* Barcode Icon 80.png in Resources */,
+				106BA49D181CDFD000112998 /* Main_iPhone.storyboard in Resources */,
+				106BA494181CDFD000112998 /* InfoPlist.strings in Resources */,
+				106B74F418217B590039BF0F /* Barcode Icon 120.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		106BA4A8181CDFD000112998 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106BA4B6181CDFD000112998 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		106BA482181CDFD000112998 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106BA496181CDFD000112998 /* main.m in Sources */,
+				106BA4A3181CDFD000112998 /* VCKiOcrViewController.m in Sources */,
+				106B74EC18215DF40039BF0F /* VCKiBarcodeViewController.m in Sources */,
+				106BA49A181CDFD000112998 /* VCKiAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		106BA4A6181CDFD000112998 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106BA4B8181CDFD000112998 /* VinDecodeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		106BA4B0181CDFD000112998 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 106BA485181CDFD000112998 /* VinDecode */;
+			targetProxy = 106BA4AF181CDFD000112998 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		106BA492181CDFD000112998 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				106BA493181CDFD000112998 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		106BA49B181CDFD000112998 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				106BA49C181CDFD000112998 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		106BA49E181CDFD000112998 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				106BA49F181CDFD000112998 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		106BA4B4181CDFD000112998 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				106BA4B5181CDFD000112998 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		106BA4B9181CDFD000112998 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		106BA4BA181CDFD000112998 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		106BA4BC181CDFD000112998 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ADP India (SS42A4AAFV)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VinDecode/VinDecode-Prefix.pch";
+				INFOPLIST_FILE = "VinDecode/VinDecode-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		106BA4BD181CDFD000112998 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VinDecode/VinDecode-Prefix.pch";
+				INFOPLIST_FILE = "VinDecode/VinDecode-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		106BA4BF181CDFD000112998 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VinDecode.app/VinDecode";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VinDecode/VinDecode-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "VinDecodeTests/VinDecodeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		106BA4C0181CDFD000112998 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VinDecode.app/VinDecode";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VinDecode/VinDecode-Prefix.pch";
+				INFOPLIST_FILE = "VinDecodeTests/VinDecodeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		106BA481181CDFD000112998 /* Build configuration list for PBXProject "VinDecode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				106BA4B9181CDFD000112998 /* Debug */,
+				106BA4BA181CDFD000112998 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		106BA4BB181CDFD000112998 /* Build configuration list for PBXNativeTarget "VinDecode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				106BA4BC181CDFD000112998 /* Debug */,
+				106BA4BD181CDFD000112998 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		106BA4BE181CDFD000112998 /* Build configuration list for PBXNativeTarget "VinDecodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				106BA4BF181CDFD000112998 /* Debug */,
+				106BA4C0181CDFD000112998 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 106BA47E181CDFD000112998 /* Project object */;
+}
