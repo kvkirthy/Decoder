@@ -10,6 +10,7 @@
 		1021B9151840CC0400C2777E /* VCKiTaxonomyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1021B9141840CC0400C2777E /* VCKiTaxonomyViewController.m */; };
 		1021B9191840D00200C2777E /* VCKiTaxonomyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1021B9181840D00200C2777E /* VCKiTaxonomyEntity.m */; };
 		1021B91C1840E7B100C2777E /* VCKiOptionsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1021B91B1840E7B100C2777E /* VCKiOptionsEntity.m */; };
+		1021B91F1841311000C2777E /* VCKiOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1021B91E1841311000C2777E /* VCKiOptionsViewController.m */; };
 		106B74E718213DB30039BF0F /* 195-barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74E618213DB30039BF0F /* 195-barcode.png */; };
 		106B74E918213E4A0039BF0F /* 162-receipt.png in Resources */ = {isa = PBXBuildFile; fileRef = 106B74E818213E4A0039BF0F /* 162-receipt.png */; };
 		106B74EC18215DF40039BF0F /* VCKiBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106B74EB18215DF40039BF0F /* VCKiBarcodeViewController.m */; };
@@ -53,6 +54,8 @@
 		1021B9181840D00200C2777E /* VCKiTaxonomyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiTaxonomyEntity.m; sourceTree = "<group>"; };
 		1021B91A1840E7B100C2777E /* VCKiOptionsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiOptionsEntity.h; sourceTree = "<group>"; };
 		1021B91B1840E7B100C2777E /* VCKiOptionsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiOptionsEntity.m; sourceTree = "<group>"; };
+		1021B91D1841311000C2777E /* VCKiOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiOptionsViewController.h; sourceTree = "<group>"; };
+		1021B91E1841311000C2777E /* VCKiOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiOptionsViewController.m; sourceTree = "<group>"; };
 		106B74E618213DB30039BF0F /* 195-barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "195-barcode.png"; sourceTree = "<group>"; };
 		106B74E818213E4A0039BF0F /* 162-receipt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "162-receipt.png"; sourceTree = "<group>"; };
 		106B74EA18215DF40039BF0F /* VCKiBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiBarcodeViewController.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				106BA4A2181CDFD000112998 /* VCKiOcrViewController.m */,
 				1021B9131840CC0400C2777E /* VCKiTaxonomyViewController.h */,
 				1021B9141840CC0400C2777E /* VCKiTaxonomyViewController.m */,
+				1021B91D1841311000C2777E /* VCKiOptionsViewController.h */,
+				1021B91E1841311000C2777E /* VCKiOptionsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				1021B9151840CC0400C2777E /* VCKiTaxonomyViewController.m in Sources */,
 				106BA496181CDFD000112998 /* main.m in Sources */,
 				106BA4A3181CDFD000112998 /* VCKiOcrViewController.m in Sources */,
+				1021B91F1841311000C2777E /* VCKiOptionsViewController.m in Sources */,
 				106B74EC18215DF40039BF0F /* VCKiBarcodeViewController.m in Sources */,
 				1021B9191840D00200C2777E /* VCKiTaxonomyEntity.m in Sources */,
 				1021B91C1840E7B100C2777E /* VCKiOptionsEntity.m in Sources */,

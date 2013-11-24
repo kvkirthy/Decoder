@@ -180,6 +180,6 @@
 }
 
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {
-    [self performSegueWithIdentifier:@"segueToTaxonomy1" sender:self];
+    [self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
 }
 @end

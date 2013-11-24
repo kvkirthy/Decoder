@@ -1,28 +1,27 @@
 //
-//  VCKiTaxonomyViewController.m
+//  VCKiViewController.m
 //  VinDecode
 //
-//  Created by VenCKi on 11/23/13.
+//  Created by VenCKi on 11/24/13.
 //  Copyright (c) 2013 VenCKi. All rights reserved.
 //
 
-#import "VCKiTaxonomyViewController.h"
-#import "VCKiTaxonomyEntity.h"
+#import "VCKiOptionsViewController.h"
+#import "VCKiOptionsEntity.h"
 
-@interface VCKiTaxonomyViewController ()
+@interface VCKiOptionsViewController ()
 
 @end
 
-@implementation VCKiTaxonomyViewController
+@implementation VCKiOptionsViewController
 
-BOOL isSegueAllowed;
-NSArray *_taxonomyRecords;
+NSArray* _optionsList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    
     if (self) {
+        // Custom initialization
     }
     return self;
 }
@@ -30,10 +29,9 @@ NSArray *_taxonomyRecords;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _taxonomyRecords = [[[VCKiTaxonomyEntity alloc]init] getTaxonomyEntities];
-    isSegueAllowed = YES;
 
+    _optionsList = [[[VCKiOptionsEntity alloc]init] GetOptionsEntities];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -56,33 +54,28 @@ NSArray *_taxonomyRecords;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0)
-    {
+    if (section == 0) {
         return 1;
     }
-    return _taxonomyRecords.count;
+    return _optionsList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"taxonomyCell";
+    static NSString *CellIdentifier = @"optionsTableCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (indexPath.section == 1) {
-        
-        VCKiTaxonomyEntity* entity = [_taxonomyRecords objectAtIndex:indexPath.row];
-        
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", entity.Trim, entity.Style ];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", entity.OEMModelCode ];
-        //cell.title.text =
+    if(indexPath.section == 0)
+    {
+        cell.textLabel.text = @"Vehicle Description here";
     }
-    else if(indexPath.section == 0){
-        cell.textLabel.text = @"Vehicle Year Make Model here";
-        cell.detailTextLabel.text= @"";
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    else if(indexPath.section == 1)
+    {
+        VCKiOptionsEntity *entity = [_optionsList objectAtIndex:indexPath.row];
+        cell.textLabel.text = entity.OptionDescription;
     }
-    return cell;
     
+    return cell;
 }
 
 /*
@@ -135,24 +128,5 @@ NSArray *_taxonomyRecords;
 }
 
  */
-
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    
-    UITableViewCell *cell = sender;
-    if([cell.detailTextLabel.text  isEqual: @""]){
-        return NO;
-    }
-    
-    //UITableView *table = (UITableView*)[cell superview];
-    //NSIndexPath *index =[table indexPathForCell:cell];
-    
-    //if([index section] == 0)
-    //{
-    //    return NO;
-    //}
-    return YES;
-     
-}
 
 @end
