@@ -10,6 +10,24 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
+			<string>api/vehicle</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>vehicleDataApi</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Vehicle API URL</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
 			<string>api/barcode</string>
 			<key>IsSecure</key>
 			<false/>
@@ -28,7 +46,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>http://192.168.2.7</string>
+			<string>http://por-vd-kotaruv.dslab.ad.adp.com</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>

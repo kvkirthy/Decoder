@@ -7,6 +7,7 @@
 //
 
 #import "VCKiBarcodeViewController.h"
+#import "VCKiVehicleBasicDataEntity.h"
 
 @interface VCKiBarcodeViewController ()
 
@@ -45,6 +46,10 @@
     else{
         self.buttonPerformCameraAction.enabled = NO;
     }
+    
+    VCKiVehicleBasicDataEntity *basicDataAccess = [[VCKiVehicleBasicDataEntity alloc]initWithObject:self];
+#warning "need to integrate with decoded barcode"
+    [basicDataAccess getVehicleBasicDataForVin:@"2g1wb5e34c1202782"];
     
 }
 
@@ -177,6 +182,20 @@
             self.buttonPerformCameraAction.enabled = NO;
         }
     }
+}
+
+// This message used for successfull data returned from network operation.
+-(void)returnDataObject:(id)returnData
+{
+    VCKiVehicleBasicDataEntity *vehicle = (VCKiVehicleBasicDataEntity *)returnData;
+    self.labelYearMakeModel.text = [NSString stringWithFormat:@"%@ - %@ - %@",vehicle.year, vehicle.make, vehicle.model ];
+}
+
+// This message used for notifying user on error.
+-(void) showErrorMessage: (NSString *) errorMessage
+{
+#warning Need to show error in the interface.
+    NSLog(@"error - %@", errorMessage);
 }
 
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {

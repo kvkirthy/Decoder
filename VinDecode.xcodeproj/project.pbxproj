@@ -35,6 +35,7 @@
 		106BA4B6181CDFD000112998 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4B4181CDFD000112998 /* InfoPlist.strings */; };
 		106BA4B8181CDFD000112998 /* VinDecodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA4B7181CDFD000112998 /* VinDecodeTests.m */; };
 		106BA4C2181CFA6B00112998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4C1181CFA6B00112998 /* Settings.bundle */; };
+		1E41E9C81846431600F9DD17 /* VCKiVehicleBasicDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E41E9C71846431600F9DD17 /* VCKiVehicleBasicDataEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,9 @@
 		106BA4B5181CDFD000112998 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		106BA4B7181CDFD000112998 /* VinDecodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VinDecodeTests.m; sourceTree = "<group>"; };
 		106BA4C1181CFA6B00112998 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		1E41E9C61846431600F9DD17 /* VCKiVehicleBasicDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiVehicleBasicDataEntity.h; sourceTree = "<group>"; };
+		1E41E9C71846431600F9DD17 /* VCKiVehicleBasicDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiVehicleBasicDataEntity.m; sourceTree = "<group>"; };
+		1E41E9C91846451800F9DD17 /* VCKiDataAccessProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiDataAccessProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,9 @@
 				1021B9181840D00200C2777E /* VCKiTaxonomyEntity.m */,
 				1021B91A1840E7B100C2777E /* VCKiOptionsEntity.h */,
 				1021B91B1840E7B100C2777E /* VCKiOptionsEntity.m */,
+				1E41E9C61846431600F9DD17 /* VCKiVehicleBasicDataEntity.h */,
+				1E41E9C71846431600F9DD17 /* VCKiVehicleBasicDataEntity.m */,
+				1E41E9C91846451800F9DD17 /* VCKiDataAccessProtocol.h */,
 			);
 			name = ApplicationLogic;
 			sourceTree = "<group>";
@@ -342,6 +349,7 @@
 				106B74EC18215DF40039BF0F /* VCKiBarcodeViewController.m in Sources */,
 				1021B9191840D00200C2777E /* VCKiTaxonomyEntity.m in Sources */,
 				1021B91C1840E7B100C2777E /* VCKiOptionsEntity.m in Sources */,
+				1E41E9C81846431600F9DD17 /* VCKiVehicleBasicDataEntity.m in Sources */,
 				106BA49A181CDFD000112998 /* VCKiAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

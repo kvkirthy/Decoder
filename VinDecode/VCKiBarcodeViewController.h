@@ -7,17 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VCKiDataAccessProtocol.h"
 
-@interface VCKiBarcodeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate >
+@interface VCKiBarcodeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, VCKiDataAccessProtocol >
 @property UIImagePickerController* imagePicker;
-- (IBAction)useCamera:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPerformCameraAction;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *serviceCallStatus;
-- (IBAction)cameraLIbrarySwap:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UITextField *textboxResult;
+@property (weak, nonatomic) IBOutlet UILabel *labelYearMakeModel;
+
+
+- (IBAction)cameraLIbrarySwap:(id)sender;
 - (IBAction)buttonGoToTaxonomyClick:(id)sender;
+- (IBAction)useCamera:(id)sender;
+// This message used for successfull data returned from network operation.
+-(void)returnDataObject:(id)returnData;
+// This message used for notifying user on error.
+-(void) showErrorMessage: (NSString *) errorMessage;
 
 @end
