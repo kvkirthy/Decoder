@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "VCKiDataAccessProtocol.h"
+#import "VCKiVehicleBasicDataEntity.h"
 
 @interface VCKiTaxonomyViewController : UITableViewController <VCKiDataAccessProtocol>
+
+@property VCKiVehicleBasicDataEntity *vehicleData;
 
 // ----------------------- Data Access Protocol messages ---------------------------
 // This message used for successfull data returned from network operation.

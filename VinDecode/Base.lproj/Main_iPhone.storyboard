@@ -93,7 +93,6 @@
                         <outlet property="segmentControl" destination="ytX-3e-pqE" id="C9i-vc-9mw"/>
                         <outlet property="serviceCallStatus" destination="4LL-D7-oz4" id="Pzd-Zv-zeF"/>
                         <outlet property="textboxResult" destination="gu9-Iy-d3y" id="lZd-Ix-QWD"/>
-                        <segue destination="sOt-7J-M2w" kind="modal" identifier="segueToTaxonomy1" id="peV-pt-qfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4V-UO-kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,7 +141,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUm-8D-A8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="398"/>
+            <point key="canvasLocation" x="630" y="734"/>
         </scene>
         <!--Ki Options View Controller - Select Options-->
         <scene sceneID="IWd-R4-QjP">
@@ -171,22 +170,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYR-mq-FHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="403"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="INk-XE-5Q3">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="sOt-7J-M2w" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TYA-9I-1dj">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Frd-tg-RsC" kind="relationship" relationship="rootViewController" id="jmg-tI-lGQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3tO-Ta-TtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-21" y="403"/>
+            <point key="canvasLocation" x="1248" y="734"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TLC-lg-GFh">
@@ -200,14 +184,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="jVG-by-sbK" kind="relationship" relationship="viewControllers" id="LFy-K7-jqI"/>
-                        <segue destination="7la-aU-Ud2" kind="relationship" relationship="viewControllers" id="0eg-uz-ZH5"/>
+                        <segue destination="wob-bV-xQJ" kind="relationship" relationship="viewControllers" id="0eg-uz-ZH5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjT-MN-uMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1072" y="392"/>
         </scene>
-        <!--Ki Barcode View Controller - VIN Barcode-->
+        <!--Ki Barcode View Controller-->
         <scene sceneID="dNP-m3-70J">
             <objects>
                 <viewController id="7la-aU-Ud2" customClass="VCKiBarcodeViewController" sceneMemberID="viewController">
@@ -220,11 +204,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWR-FT-XP9">
-                                <rect key="frame" x="20" y="203" width="280" height="156"/>
+                                <rect key="frame" x="20" y="213" width="280" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvA-Xa-TEC">
-                                <rect key="frame" x="58" y="58" width="204" height="30"/>
+                                <rect key="frame" x="58" y="68" width="204" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Tap to start camera">
@@ -236,45 +220,26 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="VIN" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IU8-Xb-AMh">
-                                <rect key="frame" x="20" y="103" width="280" height="30"/>
+                                <rect key="frame" x="20" y="113" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N1y-2t-AlX">
-                                <rect key="frame" x="20" y="27" width="280" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Camera"/>
-                                    <segment title="Picture Library"/>
-                                </segments>
-                                <connections>
-                                    <action selector="cameraLIbrarySwap:" destination="jVG-by-sbK" eventType="valueChanged" id="Cnf-XB-Eck"/>
-                                    <action selector="cameraLIbrarySwap:" destination="7la-aU-Ud2" eventType="valueChanged" id="uRI-tU-KtZ"/>
-                                </connections>
-                            </segmentedControl>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gWd-DX-uEi">
-                                <rect key="frame" x="272" y="68" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Stock Number" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JY6-ME-5Q9">
-                                <rect key="frame" x="20" y="157" width="280" height="30"/>
+                                <rect key="frame" x="20" y="173" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <segue destination="sOt-7J-M2w" kind="modal" identifier="segueToTaxonomy2" id="rXD-VP-7J6"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rr-c5-MWD">
-                                <rect key="frame" x="26" y="82" width="28" height="21"/>
+                                <rect key="frame" x="26" y="92" width="28" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stock Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPY-cu-dgd">
-                                <rect key="frame" x="26" y="135" width="81" height="21"/>
+                                <rect key="frame" x="26" y="151" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -289,6 +254,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonGoToTaxonomyClick:" destination="7la-aU-Ud2" eventType="touchUpInside" id="nrt-iT-xoz"/>
+                                    <segue destination="Frd-tg-RsC" kind="push" identifier="segueToTaxonomy2" id="gu9-TT-hYh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ii-VX-RZ6">
@@ -298,10 +264,28 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gWd-DX-uEi">
+                                <rect key="frame" x="150" y="382" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001192092896" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="VIN Barcode" image="195-barcode.png" id="R2Z-SJ-g8g"/>
+                    <navigationItem key="navigationItem" id="thZ-bk-pOh">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="N1y-2t-AlX">
+                            <rect key="frame" x="20" y="8" width="280" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Camera"/>
+                                <segment title="Picture Library"/>
+                            </segments>
+                            <connections>
+                                <action selector="cameraLIbrarySwap:" destination="jVG-by-sbK" eventType="valueChanged" id="Cnf-XB-Eck"/>
+                                <action selector="cameraLIbrarySwap:" destination="7la-aU-Ud2" eventType="valueChanged" id="uRI-tU-KtZ"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="buttonPerformCameraAction" destination="tvA-Xa-TEC" id="5Rm-Tn-WcE"/>
                         <outlet property="imageView" destination="wWR-FT-XP9" id="A9H-jy-s82"/>
@@ -312,6 +296,25 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChY-Xw-xGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12" y="734"/>
+        </scene>
+        <!--Navigation Controller - VIN Barcode-->
+        <scene sceneID="yUR-v1-azf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wob-bV-xQJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="VIN Barcode" image="195-barcode.png" id="R2Z-SJ-g8g"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lwY-zv-96o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7la-aU-Ud2" kind="relationship" relationship="rootViewController" id="cfq-tW-X2C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3PE-3J-PnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-538" y="734"/>
         </scene>
@@ -325,7 +328,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="rXD-VP-7J6"/>
-    </inferredMetricsTieBreakers>
 </document>

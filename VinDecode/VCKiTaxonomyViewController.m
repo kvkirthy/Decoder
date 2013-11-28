@@ -31,7 +31,7 @@ NSArray *_taxonomyRecords;
 {
     [super viewDidLoad];
     
-    [[[VCKiTaxonomyEntity alloc]initWithObject:self] getTaxonomyEntitiesWithYear:@"2012" Make:@"Ford" andModel:@"Fiesta"];
+    [[[VCKiTaxonomyEntity alloc]initWithObject:self] getTaxonomyEntitiesWithYear:_vehicleData.year  Make:_vehicleData.make andModel:_vehicleData.model];
     isSegueAllowed = YES;
 
     // Uncomment the following line to preserve selection between presentations.

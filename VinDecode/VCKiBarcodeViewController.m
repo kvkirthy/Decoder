@@ -8,6 +8,7 @@
 
 #import "VCKiBarcodeViewController.h"
 #import "VCKiVehicleBasicDataEntity.h"
+#import "VCKiTaxonomyViewController.h"
 
 @interface VCKiBarcodeViewController ()
 
@@ -15,6 +16,7 @@
 
 @implementation VCKiBarcodeViewController
 
+VCKiVehicleBasicDataEntity *vehicle;
 
 //@synthesize imagePicker = _imagePicker;
 @synthesize imageView = _imageView;
@@ -50,6 +52,7 @@
     VCKiVehicleBasicDataEntity *basicDataAccess = [[VCKiVehicleBasicDataEntity alloc]initWithObject:self];
 #warning "need to integrate with decoded barcode"
     [basicDataAccess getVehicleBasicDataForVin:@"2g1wb5e34c1202782"];
+    [_serviceCallStatus startAnimating];
     
 }
 
@@ -187,13 +190,15 @@
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData
 {
-    VCKiVehicleBasicDataEntity *vehicle = (VCKiVehicleBasicDataEntity *)returnData;
+    [_serviceCallStatus stopAnimating];
+    vehicle = (VCKiVehicleBasicDataEntity *)returnData;
     self.labelYearMakeModel.text = [NSString stringWithFormat:@"%@ - %@ - %@",vehicle.year, vehicle.make, vehicle.model ];
 }
 
 // This message used for notifying user on error.
 -(void) showErrorMessage: (NSString *) errorMessage
 {
+    [_serviceCallStatus stopAnimating];
 #warning Need to show error in the interface.
     NSLog(@"error - %@", errorMessage);
 }
@@ -201,4 +206,14 @@
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {
     [self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if(vehicle)
+    {
+        VCKiTaxonomyViewController *taxonomyVC = [segue destinationViewController];
+        taxonomyVC.vehicleData = vehicle;
+    }
+}
+
 @end
