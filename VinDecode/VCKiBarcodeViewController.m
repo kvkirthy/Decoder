@@ -34,7 +34,7 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	[self.serviceCallStatus stopAnimating];
     self.imagePicker = [[UIImagePickerController alloc]init];
 	self.imagePicker.delegate = self;
     
@@ -139,7 +139,7 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 
 
 - (IBAction)useCamera:(id)sender {
-    
+    self.textControlsSection.hidden = YES;
     [self presentViewController:self.imagePicker animated:YES completion:nil];
     
 }
@@ -214,6 +214,7 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {
     vehicle.vin = self.textboxResult.text;
+    [self.serviceCallStatus startAnimating];
     [basicDataAccess getVehicleBasicDataForVin:vehicle.vin];
     
   /*  if(self.textControlsSection.hidden == NO && ![self.textboxResult.text  isEqual: @""])
