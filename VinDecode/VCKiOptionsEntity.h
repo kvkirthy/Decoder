@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VCKiDataAccessProtocol.h"
 
 @interface VCKiOptionsEntity : NSObject
 
 @property NSString *OptionDescription;
+@property id<VCKiDataAccessProtocol> caller;
 
--(NSArray *) GetOptionsEntities;
+-(id) initWithObject: (id)callingObject;
+-(void) GetOptionsEntitiesForStyleId: (NSString *) styleId;
+
 
 @end

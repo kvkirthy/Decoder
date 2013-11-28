@@ -29,14 +29,8 @@ NSArray* _optionsList;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _optionsList = [[[VCKiOptionsEntity alloc]init] GetOptionsEntities];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[[VCKiOptionsEntity alloc]initWithObject:self] GetOptionsEntitiesForStyleId:@"859263"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,66 +61,41 @@ NSArray* _optionsList;
     
     if(indexPath.section == 0)
     {
+#warning @"Set real vehicle"
         cell.textLabel.text = @"Vehicle Description here";
     }
     else if(indexPath.section == 1)
     {
-        VCKiOptionsEntity *entity = [_optionsList objectAtIndex:indexPath.row];
-        cell.textLabel.text = entity.OptionDescription;
+        NSDictionary *entity = [_optionsList objectAtIndex:indexPath.row];
+        NSString* description =[entity objectForKey:@"Description"];
+        if(description){
+            cell.textLabel.text = description;
+        }
+        else
+        {
+            cell.textLabel.text = @"Invalid Description";
+        }
+        
     }
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+// ----------------------- Data Access Protocol messages ---------------------------
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)returnDataObject:(id)returnData
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSDictionary* result = returnData;
+    NSArray* options = [result objectForKey:@"Options"];
+    _optionsList = options;
+    [self.tableView reloadData];
 }
 
- */
+-(void) showErrorMessage: (NSString *) errorMessage
+{
+    NSLog(@"Error - %@", errorMessage);
+    
+}
+
 
 @end

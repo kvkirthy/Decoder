@@ -23,6 +23,8 @@
 - (IBAction)cameraLIbrarySwap:(id)sender;
 - (IBAction)buttonGoToTaxonomyClick:(id)sender;
 - (IBAction)useCamera:(id)sender;
+
+// ----------------------- Data Access Protocol messages ---------------------------
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData;
 // This message used for notifying user on error.
