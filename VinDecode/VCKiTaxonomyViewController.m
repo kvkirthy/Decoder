@@ -86,6 +86,22 @@ NSArray *_taxonomyRecords;
     
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"About Vehicle,";
+            break;
+        case 1:
+            sectionName = @"Select Style, Trim & OEM Code";
+            break;
+      
+           }
+    return sectionName;
+}
+
 -(void)returnDataObject:(id)returnData
 {
     _taxonomyRecords = returnData;

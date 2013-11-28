@@ -10,6 +10,7 @@
 #import "VCKiOptionsEntity.h"
 #import "VCKiVehicleBasicDataEntity.h"
 #import "VCKiTaxonomyEntity.h"
+#import "VCKiConfirmScreenViewController.h"
 
 @interface VCKiOptionsViewController ()
 
@@ -145,7 +146,6 @@ NSMutableArray* _colorsEntityList;
         case 1:
             sectionName = @"Select one or more options";
             break;
-            // ...
         case 2:
             sectionName = @"Select colors";
             break;
@@ -175,8 +175,8 @@ NSMutableArray* _colorsEntityList;
 {
     NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
     NSMutableArray *selectedOptions = [[NSMutableArray alloc]init];
-    NSMutableArray *selectedColors = [[NSMutableArray alloc]init];
-    //VCKiBas
+    VCKiOptionsEntity   *selectedColor = [[VCKiOptionsEntity alloc]init];
+    
     for(int i=0; i<[selectedRows count]; i++)
     {
         NSIndexPath* indexPath = [selectedRows objectAtIndex:i];
@@ -185,11 +185,16 @@ NSMutableArray* _colorsEntityList;
         }
         else if(indexPath.section == 2){
             NSLog(@"%d", indexPath.row);
-            [selectedColors addObject:[_optionsEntityList objectAtIndex:indexPath.row]];
+#warning Makesure there is only one color selected.
+            selectedColor =[_optionsEntityList objectAtIndex:indexPath.row];
         }
-        //UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"optionsTableCell" forIndexPath:indexPath];
-        
     }
+    
+    VCKiConfirmScreenViewController *scene = [segue destinationViewController];
+    scene.basicVehicleData = self.vehicleBasicData;
+    scene.taxonomyData = self.taxonomyEntity;
+    scene.optionsData = selectedOptions;
+    scene.colorsdata = selectedColor;
 }
 
 @end
