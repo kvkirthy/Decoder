@@ -214,6 +214,7 @@ VCKiVehicleBasicDataEntity *vehicle;
     {
         VCKiTaxonomyViewController *taxonomyVC = [segue destinationViewController];
         taxonomyVC.vehicleData = vehicle;
+        taxonomyVC.vehicleTitle = self.labelYearMakeModel.text;
     }
 }
 

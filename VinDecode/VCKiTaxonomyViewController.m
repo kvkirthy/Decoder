@@ -78,7 +78,7 @@ NSArray *_taxonomyRecords;
         //cell.title.text =
     }
     else if(indexPath.section == 0){
-        cell.textLabel.text = @"Vehicle Year Make Model here";
+        cell.textLabel.text = self.vehicleTitle;
         cell.detailTextLabel.text= @"";
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
@@ -113,6 +113,7 @@ NSArray *_taxonomyRecords;
 {
     VCKiTaxonomyEntity* taxonomyObject= [_taxonomyRecords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     VCKiOptionsViewController* optionsVC = [segue destinationViewController];
+    optionsVC.vehicleTitle = self.vehicleTitle;
     optionsVC.styleId = taxonomyObject.StyleId;
 }
 

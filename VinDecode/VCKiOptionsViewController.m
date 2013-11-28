@@ -62,7 +62,7 @@ NSArray* _optionsList;
     if(indexPath.section == 0)
     {
 #warning @"Set real vehicle"
-        cell.textLabel.text = @"Vehicle Description here";
+        cell.textLabel.text = self.vehicleTitle;
     }
     else if(indexPath.section == 1)
     {
