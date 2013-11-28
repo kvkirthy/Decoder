@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textboxResult;
 @property (weak, nonatomic) IBOutlet UILabel *labelYearMakeModel;
 @property (weak, nonatomic) IBOutlet UIButton *buttonGoToTaxonomy;
+@property (weak, nonatomic) IBOutlet UIView *textControlsSection;
 
 
 - (IBAction)cameraLIbrarySwap:(id)sender;

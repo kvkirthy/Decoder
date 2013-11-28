@@ -20,6 +20,7 @@ VCKiVehicleBasicDataEntity *vehicle;
 
 //@synthesize imagePicker = _imagePicker;
 @synthesize imageView = _imageView;
+VCKiVehicleBasicDataEntity *basicDataAccess;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +39,7 @@ VCKiVehicleBasicDataEntity *vehicle;
 	self.imagePicker.delegate = self;
     
     self.textboxResult.delegate = self;
+    vehicle = [[VCKiVehicleBasicDataEntity alloc]init];
     
     [self.buttonPerformCameraAction setTitle:@"Unavilable" forState:UIControlStateDisabled];
     
@@ -49,10 +51,9 @@ VCKiVehicleBasicDataEntity *vehicle;
         self.buttonPerformCameraAction.enabled = NO;
     }
     
-    VCKiVehicleBasicDataEntity *basicDataAccess = [[VCKiVehicleBasicDataEntity alloc]initWithObject:self];
+    basicDataAccess = [[VCKiVehicleBasicDataEntity alloc]initWithObject:self];
 #warning "need to integrate with decoded barcode"
-    [basicDataAccess getVehicleBasicDataForVin:@"2g1wb5e34c1202782"];
-    [_serviceCallStatus startAnimating];
+    
     
 }
 
@@ -106,7 +107,10 @@ VCKiVehicleBasicDataEntity *vehicle;
             
             if (data.length > 0 && !connectionError) {
                 if ([(NSHTTPURLResponse *)response statusCode] == 200) {
-                    [self.textboxResult setText:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+                    vehicle.vin = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    [self.textboxResult setText:vehicle.vin];
+                    self.textControlsSection.hidden = NO;
+                    [self.serviceCallStatus stopAnimating];
                 }
                 else{
                     @throw [NSException exceptionWithName:@"ServerError" reason:[NSString stringWithFormat:@"Status code from server is %ld", (long)[(NSHTTPURLResponse *)response statusCode]]  userInfo:nil];
@@ -190,10 +194,14 @@ VCKiVehicleBasicDataEntity *vehicle;
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData
 {
-    self.buttonGoToTaxonomy.hidden = NO;
+    //self.buttonGoToTaxonomy.hidden = NO;
     [_serviceCallStatus stopAnimating];
-    vehicle = (VCKiVehicleBasicDataEntity *)returnData;
+    VCKiVehicleBasicDataEntity* lVehicle = (VCKiVehicleBasicDataEntity *)returnData;
+    vehicle.year = lVehicle.year;
+    vehicle.make = lVehicle.make;
+    vehicle.model = lVehicle.model;
     self.labelYearMakeModel.text = [NSString stringWithFormat:@"%@ - %@ - %@",vehicle.year, vehicle.make, vehicle.model ];
+    [self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
 }
 
 // This message used for notifying user on error.
@@ -205,7 +213,13 @@ VCKiVehicleBasicDataEntity *vehicle;
 }
 
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {
-    //[self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
+    vehicle.vin = self.textboxResult.text;
+    [basicDataAccess getVehicleBasicDataForVin:vehicle.vin];
+    
+  /*  if(self.textControlsSection.hidden == NO && ![self.textboxResult.text  isEqual: @""])
+    {
+        
+    } */
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
