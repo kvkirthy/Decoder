@@ -166,11 +166,13 @@
                             <outlet property="delegate" destination="Vmt-d4-dY4" id="M84-lz-2Pr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Options" id="XJr-8M-XNQ"/>
+                    <navigationItem key="navigationItem" title="Select Options" id="XJr-8M-XNQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="boA-CD-4zV"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYR-mq-FHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="734"/>
+            <point key="canvasLocation" x="1188" y="734"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TLC-lg-GFh">

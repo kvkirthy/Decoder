@@ -16,6 +16,7 @@
 @implementation VCKiOptionsViewController
 
 NSArray* _optionsList;
+NSArray* _colorsList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,7 +44,7 @@ NSArray* _optionsList;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -51,7 +52,12 @@ NSArray* _optionsList;
     if (section == 0) {
         return 1;
     }
-    return _optionsList.count;
+    else if (section == 1) {
+        return _optionsList.count;
+    }
+    else{
+        return _colorsList.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,17 +82,52 @@ NSArray* _optionsList;
         }
         
     }
+    else if(indexPath.section == 2)
+    {
+        NSDictionary *entity = [_colorsList objectAtIndex:indexPath.row];
+        NSDictionary* externalColor =[entity objectForKey:@"ExternalColor"];
+        NSString* description = [externalColor objectForKey:@"Name"];
+        if(description){
+            cell.textLabel.text = description;
+        }
+        else
+        {
+            cell.textLabel.text = @"Invalid color";
+        }
+        
+    }
+
     
     return cell;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"About Vehicle,";
+            break;
+        case 1:
+            sectionName = @"Select one or more options";
+            break;
+            // ...
+        case 2:
+            sectionName = @"Select colors";
+            break;
+    }
+    return sectionName;
+}
+
 
 // ----------------------- Data Access Protocol messages ---------------------------
 
 -(void)returnDataObject:(id)returnData
 {
     NSDictionary* result = returnData;
-    NSArray* options = [result objectForKey:@"Options"];
-    _optionsList = options;
+    _optionsList = [result objectForKey:@"Options"];;
+    _colorsList = [result objectForKey:@"Colors"];
     [self.tableView reloadData];
 }
 
