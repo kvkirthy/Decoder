@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *serviceCallStatus;
 @property (weak, nonatomic) IBOutlet UITextField *textboxResult;
 @property (weak, nonatomic) IBOutlet UILabel *labelYearMakeModel;
+@property (weak, nonatomic) IBOutlet UIButton *buttonGoToTaxonomy;
 
 
 - (IBAction)cameraLIbrarySwap:(id)sender;

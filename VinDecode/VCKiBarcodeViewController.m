@@ -190,6 +190,7 @@ VCKiVehicleBasicDataEntity *vehicle;
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData
 {
+    self.buttonGoToTaxonomy.hidden = NO;
     [_serviceCallStatus stopAnimating];
     vehicle = (VCKiVehicleBasicDataEntity *)returnData;
     self.labelYearMakeModel.text = [NSString stringWithFormat:@"%@ - %@ - %@",vehicle.year, vehicle.make, vehicle.model ];
@@ -204,7 +205,7 @@ VCKiVehicleBasicDataEntity *vehicle;
 }
 
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {
-    [self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
+    //[self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

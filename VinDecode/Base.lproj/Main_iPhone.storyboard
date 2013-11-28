@@ -245,7 +245,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co6-tE-ylG">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co6-tE-ylG">
                                 <rect key="frame" x="278" y="380" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -287,6 +287,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonGoToTaxonomy" destination="co6-tE-ylG" id="GFy-wR-lbV"/>
                         <outlet property="buttonPerformCameraAction" destination="tvA-Xa-TEC" id="5Rm-Tn-WcE"/>
                         <outlet property="imageView" destination="wWR-FT-XP9" id="A9H-jy-s82"/>
                         <outlet property="labelYearMakeModel" destination="4ii-VX-RZ6" id="K4E-rd-gT4"/>
