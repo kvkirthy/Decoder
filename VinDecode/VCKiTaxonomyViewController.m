@@ -31,7 +31,7 @@ NSArray *_taxonomyRecords;
 {
     [super viewDidLoad];
     
-    _taxonomyRecords = [[[VCKiTaxonomyEntity alloc]init] getTaxonomyEntities];
+    [[[VCKiTaxonomyEntity alloc]initWithObject:self] getTaxonomyEntitiesWithYear:@"2012" Make:@"Ford" andModel:@"Fiesta"];
     isSegueAllowed = YES;
 
     // Uncomment the following line to preserve selection between presentations.
@@ -85,56 +85,17 @@ NSArray *_taxonomyRecords;
     
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)returnDataObject:(id)returnData
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    _taxonomyRecords = returnData;
+    [self.tableView reloadData];
 }
 
- */
+-(void) showErrorMessage: (NSString *) errorMessage
+{
+#warning Show error message to user instead of NSLog
+    NSLog(@"Error - %@", errorMessage);
+}
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {

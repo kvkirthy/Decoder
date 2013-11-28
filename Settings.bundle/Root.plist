@@ -10,6 +10,24 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
+			<string>api/vehicle</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>taxonomyDataApi</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Options API URL</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
 			<string>api/options</string>
 			<key>IsSecure</key>
 			<false/>

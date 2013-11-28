@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VCKiDataAccessProtocol.h"
 
 @interface VCKiTaxonomyEntity : NSObject
 
 @property NSString* OEMModelCode;
 @property NSString* Trim;
 @property NSString* Style;
+@property id<VCKiDataAccessProtocol> caller;
 
-- (NSArray*) getTaxonomyEntities;
+-(id) initWithObject: (id)callingObject;
+- (void) getTaxonomyEntitiesWithYear:(NSString*) year Make:(NSString*) make andModel:(NSString*) model;
 
 @end

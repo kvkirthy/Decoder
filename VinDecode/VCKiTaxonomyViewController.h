@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VCKiDataAccessProtocol.h"
 
-@interface VCKiTaxonomyViewController : UITableViewController
+@interface VCKiTaxonomyViewController : UITableViewController <VCKiDataAccessProtocol>
+
+// ----------------------- Data Access Protocol messages ---------------------------
+// This message used for successfull data returned from network operation.
+-(void)returnDataObject:(id)returnData;
+// This message used for notifying user on error.
+-(void) showErrorMessage: (NSString *) errorMessage;
 
 @end

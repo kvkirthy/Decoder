@@ -41,17 +41,6 @@ NSMutableData *receivedData;
     else{
         [self.caller showErrorMessage: @"Error connecting"];
     }
-    
-    
-#warning Clean this comment
-   /* for (int i=0; i<10; i++) {
-        VCKiOptionsEntity *newObject = [[VCKiOptionsEntity alloc]init];
-        newObject.OptionDescription = [NSString stringWithFormat: @" Options description %d",i ];
-        [entities addObject:newObject];
-    }
-    
-    return entities;
-    */
 }
 
 // Rest of the code is callback message from network operations.

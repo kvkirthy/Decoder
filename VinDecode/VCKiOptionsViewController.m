@@ -93,6 +93,7 @@ NSArray* _optionsList;
 
 -(void) showErrorMessage: (NSString *) errorMessage
 {
+#warning Show error message to user instead of NSLog
     NSLog(@"Error - %@", errorMessage);
     
 }
