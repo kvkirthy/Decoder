@@ -8,6 +8,8 @@
 
 #import "VCKiOptionsViewController.h"
 #import "VCKiOptionsEntity.h"
+#import "VCKiVehicleBasicDataEntity.h"
+#import "VCKiTaxonomyEntity.h"
 
 @interface VCKiOptionsViewController ()
 
@@ -16,7 +18,9 @@
 @implementation VCKiOptionsViewController
 
 NSArray* _optionsList;
+NSMutableArray* _optionsEntityList;
 NSArray* _colorsList;
+NSMutableArray* _colorsEntityList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +36,8 @@ NSArray* _colorsList;
     [super viewDidLoad];
     
     [[[VCKiOptionsEntity alloc]initWithObject:self] GetOptionsEntitiesForStyleId:_styleId];
+    _optionsEntityList = [[NSMutableArray alloc]init];
+    _colorsEntityList =[[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,35 +70,62 @@ NSArray* _colorsList;
 {
     static NSString *CellIdentifier = @"optionsTableCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    VCKiOptionsEntity* optionEntity = [[VCKiOptionsEntity alloc]init];
     
     if(indexPath.section == 0)
     {
         cell.textLabel.text = self.vehicleTitle;
+        cell.detailTextLabel.text = @"";
     }
     else if(indexPath.section == 1)
     {
         NSDictionary *entity = [_optionsList objectAtIndex:indexPath.row];
-        NSString* description =[entity objectForKey:@"Description"];
-        if(description){
-            cell.textLabel.text = description;
+        
+        optionEntity.OptionDescription = [entity objectForKey:@"Description"];;
+        optionEntity.OptionCode =[entity objectForKey:@"OptionCode"];
+        
+        [_optionsEntityList addObject: optionEntity];
+        
+        if(optionEntity.OptionDescription){
+            cell.textLabel.text = optionEntity.OptionDescription;
+            cell.detailTextLabel.text = optionEntity.OptionCode;
         }
         else
         {
             cell.textLabel.text = @"Invalid Description";
+            cell.detailTextLabel.text = @"";
         }
         
     }
     else if(indexPath.section == 2)
     {
         NSDictionary *entity = [_colorsList objectAtIndex:indexPath.row];
+        
         NSDictionary* externalColor =[entity objectForKey:@"ExternalColor"];
-        NSString* description = [externalColor objectForKey:@"Name"];
-        if(description){
-            cell.textLabel.text = description;
+        NSArray* internalColorArray =[entity objectForKey:@"InternalColor"];
+        NSDictionary* internalColor = [internalColorArray objectAtIndex:0];
+        
+        if(externalColor){
+            optionEntity.ExternalColorName = [externalColor objectForKey:@"Name"];
+            optionEntity.ExternalColorCode = [externalColor objectForKey:@"Code"];
+            optionEntity.ExternalRgbHexCode = [externalColor objectForKey:@"RgbHexCode"];
+        }
+        
+        if (internalColor) {
+            optionEntity.InternalColorName = [internalColor objectForKey:@"Name"];
+            optionEntity.InternalColorCode = [internalColor objectForKey:@"Code"];
+        }
+        
+        [_colorsEntityList addObject:optionEntity];
+        
+        if(optionEntity.ExternalColorName &&  optionEntity.InternalColorName){
+            cell.textLabel.text = optionEntity.ExternalColorName;
+            cell.detailTextLabel.text = optionEntity.InternalColorName;
         }
         else
         {
             cell.textLabel.text = @"Invalid color";
+            cell.detailTextLabel.text = @"";
         }
         
     }
@@ -138,5 +171,25 @@ NSArray* _colorsList;
     
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+    NSMutableArray *selectedOptions = [[NSMutableArray alloc]init];
+    NSMutableArray *selectedColors = [[NSMutableArray alloc]init];
+    //VCKiBas
+    for(int i=0; i<[selectedRows count]; i++)
+    {
+        NSIndexPath* indexPath = [selectedRows objectAtIndex:i];
+        if(indexPath.section == 1){
+            [selectedOptions addObject:[_optionsEntityList objectAtIndex:indexPath.row]];
+        }
+        else if(indexPath.section == 2){
+            NSLog(@"%d", indexPath.row);
+            [selectedColors addObject:[_optionsEntityList objectAtIndex:indexPath.row]];
+        }
+        //UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"optionsTableCell" forIndexPath:indexPath];
+        
+    }
+}
 
 @end
