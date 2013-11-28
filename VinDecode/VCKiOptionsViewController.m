@@ -35,7 +35,7 @@ NSMutableArray* _colorsEntityList;
 {
     [super viewDidLoad];
     
-    [[[VCKiOptionsEntity alloc]initWithObject:self] GetOptionsEntitiesForStyleId:_styleId];
+    [[[VCKiOptionsEntity alloc]initWithObject:self] GetOptionsEntitiesForStyleId:_taxonomyEntity.StyleId];
     _optionsEntityList = [[NSMutableArray alloc]init];
     _colorsEntityList =[[NSMutableArray alloc]init];
 }
@@ -74,8 +74,8 @@ NSMutableArray* _colorsEntityList;
     
     if(indexPath.section == 0)
     {
-        cell.textLabel.text = self.vehicleTitle;
-        cell.detailTextLabel.text = @"";
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _vehicleBasicData.make, _vehicleBasicData.model ];
+        cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_vehicleBasicData.year];
     }
     else if(indexPath.section == 1)
     {

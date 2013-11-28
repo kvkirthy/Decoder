@@ -12,7 +12,6 @@
 
 @interface VCKiTaxonomyViewController : UITableViewController <VCKiDataAccessProtocol>
 
-@property NSString* vehicleTitle;
 @property VCKiVehicleBasicDataEntity *vehicleData;
 
 // ----------------------- Data Access Protocol messages ---------------------------

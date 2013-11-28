@@ -78,8 +78,8 @@ NSArray *_taxonomyRecords;
         //cell.title.text =
     }
     else if(indexPath.section == 0){
-        cell.textLabel.text = self.vehicleTitle;
-        cell.detailTextLabel.text= @"";
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _vehicleData.make, _vehicleData.model ];
+        cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_vehicleData.year];
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     return cell;
@@ -113,8 +113,8 @@ NSArray *_taxonomyRecords;
 {
     VCKiTaxonomyEntity* taxonomyObject= [_taxonomyRecords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     VCKiOptionsViewController* optionsVC = [segue destinationViewController];
-    optionsVC.vehicleTitle = self.vehicleTitle;
-    optionsVC.styleId = taxonomyObject.StyleId;
+    optionsVC.vehicleBasicData = self.vehicleData;
+    optionsVC.taxonomyEntity = taxonomyObject;
 }
 
 @end
