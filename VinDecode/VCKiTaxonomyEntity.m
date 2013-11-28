@@ -84,6 +84,7 @@ NSMutableData *receivedData;
                 
                 VCKiTaxonomyEntity *taxonomyObject = [[VCKiTaxonomyEntity alloc]init];
                 taxonomyObject.Style = [vehicleAsDictionary objectForKey:@"Style"];
+                taxonomyObject.StyleId = [vehicleAsDictionary objectForKey:@"StyleId"];
                 taxonomyObject.Trim = [vehicleAsDictionary objectForKey:@"Trim"];
                 taxonomyObject.OEMModelCode = [vehicleAsDictionary objectForKey:@"OEMCode"];
                 

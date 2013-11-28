@@ -14,6 +14,7 @@
 @property NSString* OEMModelCode;
 @property NSString* Trim;
 @property NSString* Style;
+@property NSString* StyleId;
 @property id<VCKiDataAccessProtocol> caller;
 
 -(id) initWithObject: (id)callingObject;

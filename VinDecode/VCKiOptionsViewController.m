@@ -30,7 +30,7 @@ NSArray* _optionsList;
 {
     [super viewDidLoad];
     
-    [[[VCKiOptionsEntity alloc]initWithObject:self] GetOptionsEntitiesForStyleId:@"859263"];
+    [[[VCKiOptionsEntity alloc]initWithObject:self] GetOptionsEntitiesForStyleId:_styleId];
 }
 
 - (void)didReceiveMemoryWarning

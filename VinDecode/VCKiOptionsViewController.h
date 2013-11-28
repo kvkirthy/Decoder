@@ -11,7 +11,7 @@
 
 @interface VCKiOptionsViewController : UITableViewController<VCKiDataAccessProtocol>
 
-
+@property NSString* styleId;
 // ----------------------- Data Access Protocol messages ---------------------------
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData;

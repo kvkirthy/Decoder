@@ -8,6 +8,7 @@
 
 #import "VCKiTaxonomyViewController.h"
 #import "VCKiTaxonomyEntity.h"
+#import "VCKiOptionsViewController.h"
 
 @interface VCKiTaxonomyViewController ()
 
@@ -105,15 +106,14 @@ NSArray *_taxonomyRecords;
         return NO;
     }
     
-    //UITableView *table = (UITableView*)[cell superview];
-    //NSIndexPath *index =[table indexPathForCell:cell];
-    
-    //if([index section] == 0)
-    //{
-    //    return NO;
-    //}
     return YES;
-     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    VCKiTaxonomyEntity* taxonomyObject= [_taxonomyRecords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    VCKiOptionsViewController* optionsVC = [segue destinationViewController];
+    optionsVC.styleId = taxonomyObject.StyleId;
 }
 
 @end
