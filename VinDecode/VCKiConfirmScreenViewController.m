@@ -44,7 +44,7 @@
     else if (section == 1) {
         return 1;
     }
-    else if (section == 1) {
+    else if (section == 2) {
         return _optionsData.count;
     }
     else
@@ -60,8 +60,8 @@
     
     if(indexPath.section == 0)
     {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _basicVehicleData.make, _basicVehicleData.model ];
-        cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_basicVehicleData.year];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@)", _basicVehicleData.make, _basicVehicleData.model, _basicVehicleData.year ];
+        cell.detailTextLabel.text= [NSString stringWithFormat:@"%@ - %@", _basicVehicleData.vin, _basicVehicleData.stockNumber];
     }
     else if(indexPath.section == 1)
     {
