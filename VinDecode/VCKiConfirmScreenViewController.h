@@ -16,7 +16,7 @@
 
 @property VCKiVehicleBasicDataEntity *basicVehicleData;
 @property VCKiTaxonomyEntity *taxonomyData;
-@property NSArray *optionsData;
+@property NSMutableArray *optionsData;
 @property VCKiOptionsEntity *colorsdata;
 
 @end

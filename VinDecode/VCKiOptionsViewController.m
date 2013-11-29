@@ -181,12 +181,13 @@ NSMutableArray* _colorsEntityList;
     {
         NSIndexPath* indexPath = [selectedRows objectAtIndex:i];
         if(indexPath.section == 1){
+            NSLog(@"%d", indexPath.row);
             [selectedOptions addObject:[_optionsEntityList objectAtIndex:indexPath.row]];
         }
         else if(indexPath.section == 2){
             NSLog(@"%d", indexPath.row);
 #warning Makesure there is only one color selected.
-            selectedColor =[_optionsEntityList objectAtIndex:indexPath.row];
+            selectedColor =[_colorsEntityList objectAtIndex:indexPath.row];
         }
     }
     

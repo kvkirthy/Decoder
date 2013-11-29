@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -69,9 +70,9 @@
     }
     else if(indexPath.section == 2)
     {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _taxonomyData.Style, _taxonomyData.OEMModelCode ];
-        cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_taxonomyData.Trim];
-
+        VCKiOptionsEntity* optionEntity = [_optionsData objectAtIndex:indexPath.row];
+        cell.textLabel.text = optionEntity.OptionDescription;
+        cell.detailTextLabel.text = optionEntity.OptionCode;
     }
     else{
         cell.textLabel.text = [NSString stringWithFormat:@"%@", _colorsdata.ExternalColorName];
@@ -89,14 +90,16 @@
     switch (section)
     {
         case 0:
-            sectionName = @"About Vehicle,";
+            sectionName = @"Vehicle";
             break;
         case 1:
-            sectionName = @"Select one or more options";
+            sectionName = @"Trim/Style/OEM";
             break;
         case 2:
-            sectionName = @"Select colors";
+            sectionName = @"Options";
             break;
+        case 3:
+            sectionName = @"Colors";
     }
     return sectionName;
 }
