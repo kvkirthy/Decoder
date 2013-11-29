@@ -201,7 +201,11 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
     VCKiVehicleBasicDataEntity* lVehicle = (VCKiVehicleBasicDataEntity *)returnData;
     vehicle.year = lVehicle.year;
     vehicle.make = lVehicle.make;
+    vehicle.makeId = lVehicle.makeId;
+    vehicle.modelId = lVehicle.modelId;
+    
     vehicle.model = lVehicle.model;
+    
     self.labelYearMakeModel.text = [NSString stringWithFormat:@"%@ - %@ - %@",vehicle.year, vehicle.make, vehicle.model ];
     [self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
 }
@@ -226,6 +230,8 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
     if(vehicle)
     {
         VCKiTaxonomyViewController *taxonomyVC = [segue destinationViewController];
+        vehicle.stockNumber = self.textStockNumber.text;
+        
         taxonomyVC.vehicleData = vehicle;
     }
 }
