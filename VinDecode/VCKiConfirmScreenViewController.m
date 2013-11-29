@@ -8,12 +8,15 @@
 
 #import "VCKiConfirmScreenViewController.h"
 #import "VCKiVehicleAccess.h"
+#import "VCKiFinalScreenViewController.h"
 
 @interface VCKiConfirmScreenViewController ()
 
 @end
 
 @implementation VCKiConfirmScreenViewController
+
+NSString* finalMessage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //finalMessage = [[NSString alloc]init]
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.createActivity stopAnimating];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -109,7 +114,18 @@
 {
     #warning Show alert instead of NSLog
     NSLog(@"Success");
+    finalMessage = returnData;
+    [self performSegueWithIdentifier:@"segueToFinalScreen" sender:self];
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self.createActivity stopAnimating];
+    VCKiFinalScreenViewController *screen = [segue destinationViewController];
+    screen.message = finalMessage;
+}
+
 
 -(void) showErrorMessage: (NSString *) errorMessage
 {
@@ -125,6 +141,8 @@
 }
 
 - (IBAction)buttonCreateNewClicked:(id)sender {
+    self.createActivity.hidden = NO;
+    [self.createActivity startAnimating];
    VCKiVehicleAccess *vehicle = [[VCKiVehicleAccess alloc]initWithObject:self];
     vehicle.vehBasicData = _basicVehicleData;
     vehicle.taxonomyData = _taxonomyData;

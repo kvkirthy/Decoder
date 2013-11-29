@@ -19,6 +19,7 @@
 @property VCKiTaxonomyEntity *taxonomyData;
 @property NSMutableArray *optionsData;
 @property VCKiOptionsEntity *colorsdata;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *createActivity;
 
 - (IBAction)buttonCreateNewClicked:(id)sender;
 

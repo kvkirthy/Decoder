@@ -143,7 +143,7 @@
             </objects>
             <point key="canvasLocation" x="564" y="734"/>
         </scene>
-        <!--Ki Confirm Screen View Controller-->
+        <!--Ki Confirm Screen View Controller - Review Information-->
         <scene sceneID="4BB-ex-oZO">
             <objects>
                 <viewController id="Lq5-EL-etS" customClass="VCKiConfirmScreenViewController" sceneMemberID="viewController">
@@ -156,7 +156,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-t1-vlL">
-                                <rect key="frame" x="93" y="395" width="134" height="30"/>
+                                <rect key="frame" x="0.0" y="395" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create New Vehicle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -196,17 +196,54 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-AL-UwV">
+                                <rect key="frame" x="0.0" y="401" width="320" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DZw-Mp-IQw"/>
+                    <navigationItem key="navigationItem" title="Review Information" id="DZw-Mp-IQw"/>
                     <connections>
+                        <outlet property="createActivity" destination="WRD-AL-UwV" id="wLS-2B-xbF"/>
                         <outlet property="tableView" destination="gbY-1p-OhU" id="zke-O6-u7g"/>
+                        <segue destination="p55-Ws-auN" kind="push" identifier="segueToFinalScreen" id="huX-r8-68J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9o-vP-W8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1685" y="734"/>
+        </scene>
+        <!--Ki Final Screen View Controller - Final Result-->
+        <scene sceneID="55Q-XY-HAk">
+            <objects>
+                <viewController id="p55-Ws-auN" customClass="VCKiFinalScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6sW-3V-sKb"/>
+                        <viewControllerLayoutGuide type="bottom" id="E4X-If-5K1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1SE-9F-2jT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final Status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="kP1-mg-b8B">
+                                <rect key="frame" x="0.0" y="64" width="320" height="365"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Final Result" id="XfJ-5K-9jY"/>
+                    <connections>
+                        <outlet property="statusMessage" destination="kP1-mg-b8B" id="9NT-LH-mxe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kn6-1I-Een" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2229" y="734"/>
         </scene>
         <!--Ki Options View Controller - Select Options-->
         <scene sceneID="IWd-R4-QjP">

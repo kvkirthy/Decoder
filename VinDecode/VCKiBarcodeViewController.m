@@ -210,6 +210,18 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
     [self performSegueWithIdentifier:@"segueToTaxonomy2" sender:self];
 }
 
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    //Assign new frame to your view
+    [self.view setFrame:CGRectMake(0,-20,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+    
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification
+{
+    [self.view setFrame:CGRectMake(0,0,320,460)];
+}
+
 // This message used for notifying user on error.
 -(void) showErrorMessage: (NSString *) errorMessage
 {

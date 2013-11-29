@@ -37,6 +37,7 @@
 		106BA4C2181CFA6B00112998 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4C1181CFA6B00112998 /* Settings.bundle */; };
 		1E41E9C81846431600F9DD17 /* VCKiVehicleBasicDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E41E9C71846431600F9DD17 /* VCKiVehicleBasicDataEntity.m */; };
 		1E93A15E1848985200CF593C /* VCKiVehicleAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E93A15D1848985200CF593C /* VCKiVehicleAccess.m */; };
+		1EAE2C641848F065008EEBE3 /* VCKiFinalScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAE2C631848F065008EEBE3 /* VCKiFinalScreenViewController.m */; };
 		1EBA09181847A34400AA2E1A /* VCKiConfirmScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA09171847A34400AA2E1A /* VCKiConfirmScreenViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,8 @@
 		1E41E9C91846451800F9DD17 /* VCKiDataAccessProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiDataAccessProtocol.h; sourceTree = "<group>"; };
 		1E93A15C1848985200CF593C /* VCKiVehicleAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiVehicleAccess.h; sourceTree = "<group>"; };
 		1E93A15D1848985200CF593C /* VCKiVehicleAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiVehicleAccess.m; sourceTree = "<group>"; };
+		1EAE2C621848F065008EEBE3 /* VCKiFinalScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiFinalScreenViewController.h; sourceTree = "<group>"; };
+		1EAE2C631848F065008EEBE3 /* VCKiFinalScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiFinalScreenViewController.m; sourceTree = "<group>"; };
 		1EBA09161847A34400AA2E1A /* VCKiConfirmScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiConfirmScreenViewController.h; sourceTree = "<group>"; };
 		1EBA09171847A34400AA2E1A /* VCKiConfirmScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiConfirmScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +244,8 @@
 				1021B91E1841311000C2777E /* VCKiOptionsViewController.m */,
 				1EBA09161847A34400AA2E1A /* VCKiConfirmScreenViewController.h */,
 				1EBA09171847A34400AA2E1A /* VCKiConfirmScreenViewController.m */,
+				1EAE2C621848F065008EEBE3 /* VCKiFinalScreenViewController.h */,
+				1EAE2C631848F065008EEBE3 /* VCKiFinalScreenViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				106BA496181CDFD000112998 /* main.m in Sources */,
 				106BA4A3181CDFD000112998 /* VCKiOcrViewController.m in Sources */,
 				1021B91F1841311000C2777E /* VCKiOptionsViewController.m in Sources */,
+				1EAE2C641848F065008EEBE3 /* VCKiFinalScreenViewController.m in Sources */,
 				1E93A15E1848985200CF593C /* VCKiVehicleAccess.m in Sources */,
 				1EBA09181847A34400AA2E1A /* VCKiConfirmScreenViewController.m in Sources */,
 				106B74EC18215DF40039BF0F /* VCKiBarcodeViewController.m in Sources */,

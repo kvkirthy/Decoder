@@ -101,12 +101,15 @@ NSMutableData *receivedData;
     @try {
         NSError *error = nil;
         NSDictionary *res = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableLeaves error:&error];
-        /*if (isResponseValid) {
-            [self.caller returnDataObject:vehicle];
+        
+        if([res objectForKey:@"Vin"])
+        {
+            [self.caller returnDataObject:@"Congratulations, Vehicle added to inventory Successfully."];
         }
-        else{
-            [self.caller showErrorMessage: @"Invalid response."];
-        }*/
+        else
+        {
+            [self.caller returnDataObject:@"Agh! A failure causing problems. Vehicle not added to inventory"];
+        }
         
     }
     @catch (NSException *exception) {
