@@ -76,13 +76,15 @@ NSMutableData *receivedData;
         
 
             
-            VCKiVehicleBasicDataEntity *vehicle = [[VCKiVehicleBasicDataEntity alloc]init];
-            vehicle.year = [res objectForKey:@"Year"];
-            vehicle.make = [res objectForKey:@"Make"];
-            vehicle.model = [res objectForKey:@"Model"];
+        VCKiVehicleBasicDataEntity *vehicle = [[VCKiVehicleBasicDataEntity alloc]init];
+        vehicle.year = [res objectForKey:@"Year"];
+        vehicle.makeId = [res objectForKey:@"MakeId"];
+        vehicle.make = [res objectForKey:@"Make"];
+        vehicle.modelId = [res objectForKey:@"ModelId"];
+        vehicle.model = [res objectForKey:@"Model"];
             
             
-            isResponseValid = YES;
+        isResponseValid = YES;
             
            // [returnData addObject:vehicle];
   

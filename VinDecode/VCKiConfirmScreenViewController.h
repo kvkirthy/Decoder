@@ -11,12 +11,21 @@
 #import "VCKiTaxonomyEntity.h"
 #import "VCKiOptionsEntity.h"
 
-@interface VCKiConfirmScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@interface VCKiConfirmScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, VCKiDataAccessProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property VCKiVehicleBasicDataEntity *basicVehicleData;
 @property VCKiTaxonomyEntity *taxonomyData;
 @property NSMutableArray *optionsData;
 @property VCKiOptionsEntity *colorsdata;
+
+- (IBAction)buttonCreateNewClicked:(id)sender;
+
+// ----------------------- Data Access Protocol messages ---------------------------
+// This message used for successfull data returned from network operation.
+-(void)returnDataObject:(id)returnData;
+// This message used for notifying user on error.
+-(void) showErrorMessage: (NSString *) errorMessage;
 
 @end

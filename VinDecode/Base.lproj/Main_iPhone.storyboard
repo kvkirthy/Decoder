@@ -161,6 +161,9 @@
                                 <state key="normal" title="Create New Vehicle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonCreateNewClicked:" destination="Lq5-EL-etS" eventType="touchUpInside" id="IkL-Kk-zrQ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-1p-OhU">
                                 <rect key="frame" x="0.0" y="65" width="320" height="322"/>
@@ -320,7 +323,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Stock Number" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JY6-ME-5Q9">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Stock Number" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="JY6-ME-5Q9">
                                         <rect key="frame" x="0.0" y="86" width="242" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -384,6 +387,7 @@
                         <outlet property="segmentControl" destination="N1y-2t-AlX" id="dvM-jL-ecn"/>
                         <outlet property="serviceCallStatus" destination="gWd-DX-uEi" id="tAk-47-xXR"/>
                         <outlet property="textControlsSection" destination="2xG-Gg-nEj" id="B4Q-bO-BtL"/>
+                        <outlet property="textStockNumber" destination="JY6-ME-5Q9" id="8zp-7q-rKC"/>
                         <outlet property="textboxResult" destination="IU8-Xb-AMh" id="jwT-xE-60J"/>
                         <segue destination="Frd-tg-RsC" kind="push" identifier="segueToTaxonomy2" id="Csm-1O-fDX"/>
                     </connections>

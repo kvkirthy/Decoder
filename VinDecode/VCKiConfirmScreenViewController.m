@@ -7,6 +7,7 @@
 //
 
 #import "VCKiConfirmScreenViewController.h"
+#import "VCKiVehicleAccess.h"
 
 @interface VCKiConfirmScreenViewController ()
 
@@ -104,11 +105,31 @@
     return sectionName;
 }
 
+-(void)returnDataObject:(id)returnData
+{
+    #warning Show alert instead of NSLog
+    NSLog(@"Success");
+}
+
+-(void) showErrorMessage: (NSString *) errorMessage
+{
+#warning Show error message to user instead of NSLog
+    NSLog(@"Error - %@", errorMessage);
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)buttonCreateNewClicked:(id)sender {
+   VCKiVehicleAccess *vehicle = [[VCKiVehicleAccess alloc]initWithObject:self];
+    vehicle.vehBasicData = _basicVehicleData;
+    vehicle.taxonomyData = _taxonomyData;
+    vehicle.colorsData = _colorsdata;
+    [vehicle createVehicle];
 }
 
 @end

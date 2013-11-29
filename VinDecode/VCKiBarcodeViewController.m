@@ -37,8 +37,9 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 	[self.serviceCallStatus stopAnimating];
     self.imagePicker = [[UIImagePickerController alloc]init];
 	self.imagePicker.delegate = self;
-    
     self.textboxResult.delegate = self;
+    self.textStockNumber.delegate = self;
+    
     vehicle = [[VCKiVehicleBasicDataEntity alloc]init];
     
     [self.buttonPerformCameraAction setTitle:@"Unavilable" forState:UIControlStateDisabled];
@@ -72,6 +73,7 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.textboxResult resignFirstResponder];
+    [self.textStockNumber resignFirstResponder];
     return YES;
 }
 
@@ -214,13 +216,9 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 
 - (IBAction)buttonGoToTaxonomyClick:(id)sender {
     vehicle.vin = self.textboxResult.text;
+    vehicle.stockNumber = _textStockNumber.text;
     [self.serviceCallStatus startAnimating];
     [basicDataAccess getVehicleBasicDataForVin:vehicle.vin];
-    
-  /*  if(self.textControlsSection.hidden == NO && ![self.textboxResult.text  isEqual: @""])
-    {
-        
-    } */
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

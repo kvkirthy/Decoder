@@ -14,7 +14,10 @@
 @property NSString* vin;
 @property NSString* year;
 @property NSString* make;
+@property NSString* makeId;
 @property NSString* model;
+@property NSString* modelId;
+@property NSString* stockNumber;
 
 @property id<VCKiDataAccessProtocol> caller;
 
