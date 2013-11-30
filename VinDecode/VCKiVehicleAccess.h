@@ -18,6 +18,7 @@
 @property VCKiVehicleBasicDataEntity* vehBasicData;
 @property id<VCKiDataAccessProtocol> caller;
 
+-(void) postVehicleImage: (NSData *) imageData and: (NSString *)postData;
 -(id) initWithObject: (id)callingObject;
 -(BOOL) createVehicle;
 

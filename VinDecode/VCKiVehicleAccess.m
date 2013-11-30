@@ -23,6 +23,62 @@ NSMutableData *receivedData;
     return self;
 }
 
+-(void) postVehicleImage: (NSData *) imageData and: (NSString *)postData
+{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    NSString *url = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"vehicleImageUri"]];
+    
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = @"-----------------------------7dd38a1060692";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"gzip,deflate,sdch" forHTTPHeaderField:@"Accept-Encoding"];
+    [request addValue:@"no-cache" forHTTPHeaderField:@"Pragma"];
+    
+    NSMutableData *body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\nContent-Disposition: form-data; name=\"assetType\"" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat: @"\r\n\r\n%@",postData] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\nContent-Disposition: form-data; name=\"images\"; filename=\"iphoneFile.jpg\""dataUsingEncoding:NSUTF8StringEncoding]];
+    //[body appendData:[@"\r\nContent-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\nContent-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:imageData]];
+    [body appendData:[@"\r\n-------------------------------7dd38a1060692--\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setHTTPBody:body];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        @try {
+            
+            if (data.length > 0 && !connectionError) {
+                if ([(NSHTTPURLResponse *)response statusCode] == 200) {
+                    NSString* imagePostResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    [self.caller returnDataObject:imagePostResponse];
+                }
+                else{
+                    @throw [NSException exceptionWithName:@"ServerError" reason:[NSString stringWithFormat:@"Status code from server is %ld", (long)[(NSHTTPURLResponse *)response statusCode]]  userInfo:nil];
+                }
+            }
+            else if(connectionError){
+                @throw [NSException exceptionWithName:@"ConnectionError" reason:[NSString stringWithFormat:@"%@", connectionError]  userInfo:nil];
+            }
+            else
+            {
+                @throw [NSException exceptionWithName:@"UnknownError" reason:@"Invalid Response" userInfo:nil];
+            }
+        }
+        @catch (NSException *exception) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Gosh Error!" message:@"Error while trying to decode" delegate:nil cancelButtonTitle:@"Okay !" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+    
+}
+
 -(BOOL) createVehicle
 {
     NSString *url = [NSString stringWithFormat:@"%@/%@?json=true",[[NSUserDefaults standardUserDefaults] stringForKey:@"baseApiUrl"],[[NSUserDefaults standardUserDefaults] stringForKey:@"vehicleDataApi"]];
@@ -33,24 +89,6 @@ NSMutableData *receivedData;
     
     NSData *requestData = [NSData dataWithBytes: [requestObject UTF8String] length: [requestObject length]];
     [urlRequest setHTTPBody:requestData];
-    
-    /*
-     {
-     Vin: "3FADP4AJ1CM100966",
-     StockNumber: "abc123",
-     Year: "2012",
-     MakeId: "383",
-     Make: "Ford",
-     ModelId: "29573",
-     Model: "Fiesta",
-     Trim: "S",
-     StyleId: "859263",
-     Style: "4dr Sdn S",
-     OEMCode: "P4A",
-     Options:null,
-     ExternalColor: {"Code":"YZ","Name":"Oxford White","Base":null,"RgbHexCode":"FFFFFF"},
-     InternalColor: {"Code":"50","Name":"Light Stone","Base":nu
-     */
     
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];

@@ -52,12 +52,12 @@ NSArray *_taxonomyRecords;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0)
+    if(section == 0 || section == 1)
     {
         return 1;
     }
@@ -69,7 +69,7 @@ NSArray *_taxonomyRecords;
     static NSString *CellIdentifier = @"taxonomyCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (indexPath.section == 1) {
+    if (indexPath.section == 2) {
         
         VCKiTaxonomyEntity* entity = [_taxonomyRecords objectAtIndex:indexPath.row];
         
@@ -77,13 +77,31 @@ NSArray *_taxonomyRecords;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", entity.OEMModelCode ];
         //cell.title.text =
     }
+    else if(indexPath.section == 1)
+    {
+        cell.textLabel.text = @"Select Vehicle Images";
+        cell.detailTextLabel.text= @"(Take new ones or select from libarary)";
+
+    }
     else if(indexPath.section == 0){
         cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _vehicleData.make, _vehicleData.model ];
         cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_vehicleData.year];
         [cell setAccessoryType:UITableViewCellAccessoryNone];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        [self performSegueWithIdentifier:@"segueToSelectImages" sender:self];
+    }
+    else if(indexPath.section == 2)
+    {
+        [self performSegueWithIdentifier:@"segueToOptions" sender:self];
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -95,6 +113,9 @@ NSArray *_taxonomyRecords;
             sectionName = @"About Vehicle,";
             break;
         case 1:
+            sectionName = @"Vehicle Pictures";
+            break;
+        case 2:
             sectionName = @"Select Style, Trim & OEM Code";
             break;
       
@@ -127,10 +148,13 @@ NSArray *_taxonomyRecords;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    VCKiTaxonomyEntity* taxonomyObject= [_taxonomyRecords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-    VCKiOptionsViewController* optionsVC = [segue destinationViewController];
-    optionsVC.vehicleBasicData = self.vehicleData;
-    optionsVC.taxonomyEntity = taxonomyObject;
-}
+    if([segue.identifier  isEqual: @"segueToOptions"]){
+        VCKiTaxonomyEntity* taxonomyObject= [_taxonomyRecords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        VCKiOptionsViewController* optionsVC = [segue destinationViewController];
+        optionsVC.vehicleBasicData = self.vehicleData;
+        optionsVC.taxonomyEntity = taxonomyObject;
+
+    }
+   }
 
 @end

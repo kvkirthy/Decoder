@@ -131,17 +131,37 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Vmt-d4-dY4" kind="push" id="OJM-VU-PVB"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Trim/Style/OEM" id="XyB-sU-DlR"/>
+                    <connections>
+                        <segue destination="Vmt-d4-dY4" kind="push" identifier="segueToOptions" id="kUH-ri-Tmj"/>
+                        <segue destination="NVZ-YH-nhK" kind="push" identifier="segueToSelectImages" id="hbX-WF-33d"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUm-8D-A8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="564" y="734"/>
+        </scene>
+        <!--View Controller - Select Images-->
+        <scene sceneID="svp-ms-DwW">
+            <objects>
+                <viewController id="NVZ-YH-nhK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lP8-7c-Zlc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qxg-hZ-1e3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B4X-Sb-ZtJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Images" id="4gr-R8-JOU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K5P-Xb-2NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1126" y="1408"/>
         </scene>
         <!--Ki Confirm Screen View Controller - Review Information-->
         <scene sceneID="4BB-ex-oZO">
