@@ -140,7 +140,7 @@ NSMutableData *receivedData;
         NSError *error = nil;
         NSDictionary *res = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableLeaves error:&error];
         
-        if([res objectForKey:@"Vin"])
+        if([(NSString *)[res objectForKey:@"Vin"] isEqualToString:self.vehBasicData.vin])
         {
             [self.caller returnDataObject:@"Congratulations, Vehicle added to inventory Successfully."];
         }
