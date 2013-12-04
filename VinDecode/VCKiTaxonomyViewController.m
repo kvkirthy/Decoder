@@ -30,10 +30,17 @@ NSArray *_taxonomyRecords;
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    @try {
+        
+        [super viewDidLoad];
+        
+        [[[VCKiTaxonomyEntity alloc]initWithObject:self] getTaxonomyEntitiesWithYear:_vehicleData.year  Make:_vehicleData.make andModel:_vehicleData.model];
+        isSegueAllowed = YES;
+    }
+    @catch (NSException *exception) {
+        [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error while loading the view %@",exception ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
+    }
     
-    [[[VCKiTaxonomyEntity alloc]initWithObject:self] getTaxonomyEntitiesWithYear:_vehicleData.year  Make:_vehicleData.make andModel:_vehicleData.model];
-    isSegueAllowed = YES;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,31 +73,35 @@ NSArray *_taxonomyRecords;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"taxonomyCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (indexPath.section == 2) {
+    @try {
+        static NSString *CellIdentifier = @"taxonomyCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        VCKiTaxonomyEntity* entity = [_taxonomyRecords objectAtIndex:indexPath.row];
-        
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", entity.Trim, entity.Style ];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", entity.OEMModelCode ];
-        //cell.title.text =
+        if (indexPath.section == 2) {
+            
+            VCKiTaxonomyEntity* entity = [_taxonomyRecords objectAtIndex:indexPath.row];
+            
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", entity.Trim, entity.Style ];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", entity.OEMModelCode ];
+            //cell.title.text =
+        }
+        else if(indexPath.section == 1)
+        {
+            cell.textLabel.text = @"Select Vehicle Images";
+            cell.detailTextLabel.text= @"(Take new ones or select from libarary)";
+            
+        }
+        else if(indexPath.section == 0){
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _vehicleData.make, _vehicleData.model ];
+            cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_vehicleData.year];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        return cell;
     }
-    else if(indexPath.section == 1)
-    {
-        cell.textLabel.text = @"Select Vehicle Images";
-        cell.detailTextLabel.text= @"(Take new ones or select from libarary)";
-
+    @catch (NSException *exception) {
+        [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error creating table view %@",exception ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
     }
-    else if(indexPath.section == 0){
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", _vehicleData.make, _vehicleData.model ];
-        cell.detailTextLabel.text= [NSString stringWithFormat:@"%@",_vehicleData.year];
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    return cell;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -131,13 +142,11 @@ NSArray *_taxonomyRecords;
 
 -(void) showErrorMessage: (NSString *) errorMessage
 {
-#warning Show error message to user instead of NSLog
-    NSLog(@"Error - %@", errorMessage);
+    [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error returned %@.",errorMessage ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    
     UITableViewCell *cell = sender;
     if([cell.detailTextLabel.text  isEqual: @""]){
         return NO;

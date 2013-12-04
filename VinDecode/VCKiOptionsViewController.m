@@ -166,8 +166,7 @@ NSMutableArray* _colorsEntityList;
 
 -(void) showErrorMessage: (NSString *) errorMessage
 {
-#warning Show error message to user instead of NSLog
-    NSLog(@"Error - %@", errorMessage);
+    [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error returned %@.",errorMessage ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
     
 }
 

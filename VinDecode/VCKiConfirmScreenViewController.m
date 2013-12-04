@@ -112,8 +112,6 @@ NSString* finalMessage;
 
 -(void)returnDataObject:(id)returnData
 {
-    #warning Show alert instead of NSLog
-    NSLog(@"Success");
     finalMessage = returnData;
     [self performSegueWithIdentifier:@"segueToFinalScreen" sender:self];
 }
@@ -129,8 +127,7 @@ NSString* finalMessage;
 
 -(void) showErrorMessage: (NSString *) errorMessage
 {
-#warning Show error message to user instead of NSLog
-    NSLog(@"Error - %@", errorMessage);
+    [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error returned %@.",errorMessage ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
     
 }
 
