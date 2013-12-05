@@ -14,6 +14,7 @@ NSMutableData *receivedData;
 
 -(id)initWithObject:(id)callingObject
 {
+    self.images = [[NSMutableArray alloc]init];
     self.caller = callingObject;
     receivedData = [[NSMutableData alloc]init];
     return self;

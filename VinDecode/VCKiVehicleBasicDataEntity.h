@@ -18,6 +18,7 @@
 @property NSString* model;
 @property NSString* modelId;
 @property NSString* stockNumber;
+@property NSMutableArray* images;
 
 @property id<VCKiDataAccessProtocol> caller;
 

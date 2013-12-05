@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VCKiDataAccessProtocol.h"
 #import "VCKiVehicleBasicDataEntity.h"
+#import "VCKiControllerDataExchange.h"
 
-@interface VCKiTaxonomyViewController : UITableViewController <VCKiDataAccessProtocol>
+@interface VCKiTaxonomyViewController : UITableViewController <VCKiDataAccessProtocol, VCKiControllerDataExchange>
 
 @property VCKiVehicleBasicDataEntity *vehicleData;
 
@@ -19,5 +20,7 @@
 -(void)returnDataObject:(id)returnData;
 // This message used for notifying user on error.
 -(void) showErrorMessage: (NSString *) errorMessage;
+
+-(void)setStringData:(NSString *)stringValue;
 
 @end

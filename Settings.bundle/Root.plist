@@ -10,6 +10,24 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
+			<string>https://api.dev-3.cobalt.com/inventoryAssetService/rest/v1.0/assets/upload</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>vehicleImageUri</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Post Vehicle Image URL (Complete)</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
 			<string>api/vehicle</string>
 			<key>IsSecure</key>
 			<false/>

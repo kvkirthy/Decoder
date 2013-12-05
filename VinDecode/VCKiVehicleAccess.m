@@ -57,7 +57,20 @@ NSMutableData *receivedData;
             if (data.length > 0 && !connectionError) {
                 if ([(NSHTTPURLResponse *)response statusCode] == 200) {
                     NSString* imagePostResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                    [self.caller returnDataObject:imagePostResponse];
+                    
+                    @try {
+                        NSError *error = nil;
+                        NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+                        NSDictionary *uploadStatus = [(NSArray*)[res objectForKey:@"uploadStatus"] objectAtIndex:0];
+                        if(uploadStatus)
+                        {
+                            id returnedObject = [uploadStatus objectForKey:@"assetId"];
+                            [self.caller returnDataObject:returnedObject];
+                        }
+                    }
+                    @catch (NSException *exception) {
+                        @throw [NSException exceptionWithName:@"Invalid response" reason:@"unexpected JSON from server" userInfo:nil];
+                    }
                 }
                 else{
                     @throw [NSException exceptionWithName:@"ServerError" reason:[NSString stringWithFormat:@"Status code from server is %ld", (long)[(NSHTTPURLResponse *)response statusCode]]  userInfo:nil];
@@ -72,8 +85,7 @@ NSMutableData *receivedData;
             }
         }
         @catch (NSException *exception) {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Gosh Error!" message:@"Error while trying to decode" delegate:nil cancelButtonTitle:@"Okay !" otherButtonTitles:nil];
-            [alert show];
+            [self.caller showErrorMessage:exception.description];
         }
     }];
     
@@ -84,8 +96,29 @@ NSMutableData *receivedData;
     NSString *url = [NSString stringWithFormat:@"%@/%@?json=true",[[NSUserDefaults standardUserDefaults] stringForKey:@"baseApiUrl"],[[NSUserDefaults standardUserDefaults] stringForKey:@"vehicleDataApi"]];
     
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    NSString* imageIds;
+    if(_vehBasicData.images && [_vehBasicData.images count] > 0)
+    {
+        
+        for (int i=0; i<[_vehBasicData.images count]; i++) {
+            if (i == 0) {
+                imageIds = [NSString stringWithFormat:@"%@",[_vehBasicData.images objectAtIndex:i]];
+            }
+            else{
+                imageIds = [NSString stringWithFormat:@"%@,%@",imageIds,[_vehBasicData.images objectAtIndex:i]];
+            }
+            
+        }
+        imageIds = [NSString stringWithFormat:@"[%@]",imageIds];
+    }
+    else
+    {
+        imageIds = [NSString stringWithFormat:@"null"];
+    }
   
-    NSString* requestObject = [NSString stringWithFormat:@"{Vin: \"%@\", StockNumber: \"%@\", Year: \"%@\", MakeId: \"%@\", ModelId: \"%@\", Model: \"%@\", Trim: \"%@\", StyleId: \"%@\", Style: \"%@\", OEMCode: \"%@\", Options:null, ExternalColor: {Code:\"%@\", Name: \"%@\", RgbHexCode: \"%@\"}, InternalColor: {Code:\"%@\", Name: \"%@\"}}", _vehBasicData.vin, _vehBasicData.stockNumber, _vehBasicData.year, _vehBasicData.makeId, _vehBasicData.modelId, _vehBasicData.model, _taxonomyData.Trim, _taxonomyData.StyleId, _taxonomyData.Style, _taxonomyData.OEMModelCode, _colorsData.ExternalColorCode, _colorsData.ExternalColorName, _colorsData.ExternalRgbHexCode, _colorsData.InternalColorCode, _colorsData.InternalColorName];
+    NSString* requestObject = [NSString stringWithFormat:@"{Vin: \"%@\", StockNumber: \"%@\", Year: \"%@\", MakeId: \"%@\", ModelId: \"%@\", Model: \"%@\", Trim: \"%@\", StyleId: \"%@\", Style: \"%@\", OEMCode: \"%@\", Options:null,photoIds:\"%@\", ExternalColor: {Code:\"%@\", Name: \"%@\", RgbHexCode: \"%@\"}, InternalColor: {Code:\"%@\", Name: \"%@\"}}", _vehBasicData.vin, _vehBasicData.stockNumber, _vehBasicData.year, _vehBasicData.makeId, _vehBasicData.modelId, _vehBasicData.model, _taxonomyData.Trim, _taxonomyData.StyleId, _taxonomyData.Style, _taxonomyData.OEMModelCode, imageIds, _colorsData.ExternalColorCode, _colorsData.ExternalColorName, _colorsData.ExternalRgbHexCode, _colorsData.InternalColorCode, _colorsData.InternalColorName];
+
     
     NSData *requestData = [NSData dataWithBytes: [requestObject UTF8String] length: [requestObject length]];
     [urlRequest setHTTPBody:requestData];

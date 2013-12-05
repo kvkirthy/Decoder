@@ -100,6 +100,7 @@
 		1EE6E74318506C54007E1E7A /* VCKiVehicleImageSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiVehicleImageSelectorViewController.h; sourceTree = "<group>"; };
 		1EE6E74418506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiVehicleImageSelectorViewController.m; sourceTree = "<group>"; };
 		1EE6E74718509F46007E1E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = VinDecode/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1EE6E7491850D484007E1E7A /* VCKiControllerDataExchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiControllerDataExchange.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +139,7 @@
 				1E41E9C91846451800F9DD17 /* VCKiDataAccessProtocol.h */,
 				1E93A15C1848985200CF593C /* VCKiVehicleAccess.h */,
 				1E93A15D1848985200CF593C /* VCKiVehicleAccess.m */,
+				1EE6E7491850D484007E1E7A /* VCKiControllerDataExchange.h */,
 			);
 			name = ApplicationLogic;
 			sourceTree = "<group>";

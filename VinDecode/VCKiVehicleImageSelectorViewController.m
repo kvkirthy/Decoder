@@ -7,9 +7,10 @@
 //
 
 #import "VCKiVehicleImageSelectorViewController.h"
+#import "VCKiVehicleAccess.h"
 
 @interface VCKiVehicleImageSelectorViewController ()
-
+@property VCKiVehicleAccess* vehicleAccess;
 @end
 
 @implementation VCKiVehicleImageSelectorViewController
@@ -29,6 +30,7 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
 {
     [super viewDidLoad];
     self.imagePicker = [[UIImagePickerController alloc]init];
+    self.vehicleAccess = [[VCKiVehicleAccess alloc]initWithObject:self];
 	self.imagePicker.delegate = self;
     
     [self.buttonPerformCameraAction setTitle:@"Unavilable" forState:UIControlStateDisabled];
@@ -66,12 +68,13 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
             _previousXPosition = 5;
             _previousYPosition += offset + 5;
         }
-
         
-        //[self.scrollView addSubview:imageView];
         [self.scrollView addSubview:imageView];
         [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
         _imageCount += 1;
+        
+        [self.vehicleAccess postVehicleImage:UIImageJPEGRepresentation(imageView.image, 1.0) and:@"image"];
+        
     }
     @catch (NSException *exception) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Gosh Error!" message:@"Error while trying to upload image" delegate:nil cancelButtonTitle:@"Got It!" otherButtonTitles:nil];
@@ -122,4 +125,19 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
     }
 
 }
+// This message used for successfull data returned from network operation.
+-(void)returnDataObject:(id)returnData
+{
+    [self.delegate setStringData:[NSString stringWithFormat:@"%@",[returnData stringValue]]];
+#warning Incomplete implementation
+    
+}
+
+// This message used for notifying user on error.
+-(void) showErrorMessage: (NSString *) errorMessage
+{
+#warning incomplete implementation
+    NSLog(@"error %@", errorMessage);
+}
+
 @end

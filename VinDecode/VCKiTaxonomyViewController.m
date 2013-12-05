@@ -9,6 +9,7 @@
 #import "VCKiTaxonomyViewController.h"
 #import "VCKiTaxonomyEntity.h"
 #import "VCKiOptionsViewController.h"
+#import "VCKiVehicleImageSelectorViewController.h"
 
 @interface VCKiTaxonomyViewController ()
 
@@ -162,8 +163,17 @@ NSArray *_taxonomyRecords;
         VCKiOptionsViewController* optionsVC = [segue destinationViewController];
         optionsVC.vehicleBasicData = self.vehicleData;
         optionsVC.taxonomyEntity = taxonomyObject;
-
     }
-   }
+    else if([segue.identifier isEqualToString:@"segueToSelectImages"])
+    {
+        VCKiVehicleImageSelectorViewController *imageSelectorVc = [segue destinationViewController];
+        imageSelectorVc.delegate = self;
+    }
+}
+
+-(void) setStringData:(NSString *)stringValue
+{
+    [self.vehicleData.images insertObject:stringValue atIndex:0];
+}
 
 @end

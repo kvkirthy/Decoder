@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "VCKiDataAccessProtocol.h"
+#import "VCKiOptionsEntity.h"
+#import "VCKiTaxonomyEntity.h"
+#import "VCKiVehicleBasicDataEntity.h"
 
 
 @interface VCKiVehicleAccess : NSObject
