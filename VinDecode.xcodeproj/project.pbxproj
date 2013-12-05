@@ -25,8 +25,6 @@
 		106BA494181CDFD000112998 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 106BA492181CDFD000112998 /* InfoPlist.strings */; };
 		106BA496181CDFD000112998 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA495181CDFD000112998 /* main.m */; };
 		106BA49A181CDFD000112998 /* VCKiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA499181CDFD000112998 /* VCKiAppDelegate.m */; };
-		106BA49D181CDFD000112998 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106BA49B181CDFD000112998 /* Main_iPhone.storyboard */; };
-		106BA4A0181CDFD000112998 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106BA49E181CDFD000112998 /* Main_iPad.storyboard */; };
 		106BA4A3181CDFD000112998 /* VCKiOcrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106BA4A2181CDFD000112998 /* VCKiOcrViewController.m */; };
 		106BA4A5181CDFD000112998 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106BA4A4181CDFD000112998 /* Images.xcassets */; };
 		106BA4AC181CDFD000112998 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106BA4AB181CDFD000112998 /* XCTest.framework */; };
@@ -39,6 +37,8 @@
 		1E93A15E1848985200CF593C /* VCKiVehicleAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E93A15D1848985200CF593C /* VCKiVehicleAccess.m */; };
 		1EAE2C641848F065008EEBE3 /* VCKiFinalScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAE2C631848F065008EEBE3 /* VCKiFinalScreenViewController.m */; };
 		1EBA09181847A34400AA2E1A /* VCKiConfirmScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA09171847A34400AA2E1A /* VCKiConfirmScreenViewController.m */; };
+		1EE6E74518506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6E74418506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m */; };
+		1EE6E74818509F46007E1E7A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE6E74618509F46007E1E7A /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +79,6 @@
 		106BA497181CDFD000112998 /* VinDecode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VinDecode-Prefix.pch"; sourceTree = "<group>"; };
 		106BA498181CDFD000112998 /* VCKiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiAppDelegate.h; sourceTree = "<group>"; };
 		106BA499181CDFD000112998 /* VCKiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCKiAppDelegate.m; sourceTree = "<group>"; };
-		106BA49C181CDFD000112998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		106BA49F181CDFD000112998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		106BA4A1181CDFD000112998 /* VCKiOcrViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiOcrViewController.h; sourceTree = "<group>"; };
 		106BA4A2181CDFD000112998 /* VCKiOcrViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCKiOcrViewController.m; sourceTree = "<group>"; };
 		106BA4A4181CDFD000112998 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -99,6 +97,9 @@
 		1EAE2C631848F065008EEBE3 /* VCKiFinalScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiFinalScreenViewController.m; sourceTree = "<group>"; };
 		1EBA09161847A34400AA2E1A /* VCKiConfirmScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiConfirmScreenViewController.h; sourceTree = "<group>"; };
 		1EBA09171847A34400AA2E1A /* VCKiConfirmScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiConfirmScreenViewController.m; sourceTree = "<group>"; };
+		1EE6E74318506C54007E1E7A /* VCKiVehicleImageSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKiVehicleImageSelectorViewController.h; sourceTree = "<group>"; };
+		1EE6E74418506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiVehicleImageSelectorViewController.m; sourceTree = "<group>"; };
+		1EE6E74718509F46007E1E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = VinDecode/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +159,7 @@
 		106BA47D181CDFD000112998 = {
 			isa = PBXGroup;
 			children = (
+				1EE6E74618509F46007E1E7A /* Main_iPhone.storyboard */,
 				106BA4C1181CFA6B00112998 /* Settings.bundle */,
 				106BA48F181CDFD000112998 /* VinDecode */,
 				106BA4B1181CDFD000112998 /* VinDecodeTests */,
@@ -189,8 +191,6 @@
 		106BA48F181CDFD000112998 /* VinDecode */ = {
 			isa = PBXGroup;
 			children = (
-				106BA49B181CDFD000112998 /* Main_iPhone.storyboard */,
-				106BA49E181CDFD000112998 /* Main_iPad.storyboard */,
 				1021B9161840CF0400C2777E /* ApplicationLogic */,
 				107D633718409D930070F01A /* ViewControllers */,
 				106B74E118213CE10039BF0F /* icons */,
@@ -234,6 +234,8 @@
 		107D633718409D930070F01A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1EE6E74318506C54007E1E7A /* VCKiVehicleImageSelectorViewController.h */,
+				1EE6E74418506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m */,
 				106B74EA18215DF40039BF0F /* VCKiBarcodeViewController.h */,
 				106B74EB18215DF40039BF0F /* VCKiBarcodeViewController.m */,
 				106BA4A1181CDFD000112998 /* VCKiOcrViewController.h */,
@@ -328,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				106B74E718213DB30039BF0F /* 195-barcode.png in Resources */,
-				106BA4A0181CDFD000112998 /* Main_iPad.storyboard in Resources */,
 				106BA4A5181CDFD000112998 /* Images.xcassets in Resources */,
 				106B74E918213E4A0039BF0F /* 162-receipt.png in Resources */,
 				106B74F818217C780039BF0F /* Barcode Icon 152.png in Resources */,
@@ -336,9 +337,9 @@
 				106B74F218217B590039BF0F /* Barcode Icon 58.png in Resources */,
 				106BA4C2181CFA6B00112998 /* Settings.bundle in Resources */,
 				106B74F318217B590039BF0F /* Barcode Icon 80.png in Resources */,
-				106BA49D181CDFD000112998 /* Main_iPhone.storyboard in Resources */,
 				106BA494181CDFD000112998 /* InfoPlist.strings in Resources */,
 				106B74F418217B590039BF0F /* Barcode Icon 120.png in Resources */,
+				1EE6E74818509F46007E1E7A /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +361,7 @@
 				1021B9151840CC0400C2777E /* VCKiTaxonomyViewController.m in Sources */,
 				106BA496181CDFD000112998 /* main.m in Sources */,
 				106BA4A3181CDFD000112998 /* VCKiOcrViewController.m in Sources */,
+				1EE6E74518506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m in Sources */,
 				1021B91F1841311000C2777E /* VCKiOptionsViewController.m in Sources */,
 				1EAE2C641848F065008EEBE3 /* VCKiFinalScreenViewController.m in Sources */,
 				1E93A15E1848985200CF593C /* VCKiVehicleAccess.m in Sources */,
@@ -399,28 +401,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		106BA49B181CDFD000112998 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				106BA49C181CDFD000112998 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		106BA49E181CDFD000112998 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				106BA49F181CDFD000112998 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		106BA4B4181CDFD000112998 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				106BA4B5181CDFD000112998 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1EE6E74618509F46007E1E7A /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EE6E74718509F46007E1E7A /* Base */,
+			);
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

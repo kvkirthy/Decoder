@@ -144,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="564" y="734"/>
         </scene>
-        <!--View Controller - Select Images-->
+        <!--Ki Vehicle Image Selector View Controller - Select Images-->
         <scene sceneID="svp-ms-DwW">
             <objects>
-                <viewController id="NVZ-YH-nhK" sceneMemberID="viewController">
+                <viewController id="NVZ-YH-nhK" customClass="VCKiVehicleImageSelectorViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lP8-7c-Zlc"/>
                         <viewControllerLayoutGuide type="bottom" id="Qxg-hZ-1e3"/>
@@ -155,9 +155,42 @@
                     <view key="view" contentMode="scaleToFill" id="B4X-Sb-ZtJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zY6-A3-A52">
+                                <rect key="frame" x="0.0" y="65" width="320" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Camera"/>
+                                    <segment title="Picture Library"/>
+                                </segments>
+                                <connections>
+                                    <action selector="swapCameraSelection:" destination="NVZ-YH-nhK" eventType="valueChanged" id="J2J-CF-IkG"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krj-6C-QQY">
+                                <rect key="frame" x="3" y="101" width="314" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Tap here for choosing image picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="picSelectorClicked:" destination="NVZ-YH-nhK" eventType="touchUpInside" id="8tw-Hx-0RS"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-an-aiV">
+                                <rect key="frame" x="3" y="139" width="314" height="285"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Images" id="4gr-R8-JOU"/>
+                    <connections>
+                        <outlet property="buttonPerformCameraAction" destination="krj-6C-QQY" id="0YJ-bd-leO"/>
+                        <outlet property="cameraPicLibSelector" destination="zY6-A3-A52" id="bjt-se-Rki"/>
+                        <outlet property="scrollView" destination="Y1h-an-aiV" id="35U-nB-6DC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5P-Xb-2NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
