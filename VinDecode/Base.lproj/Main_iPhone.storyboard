@@ -298,7 +298,7 @@
             </objects>
             <point key="canvasLocation" x="2229" y="734"/>
         </scene>
-        <!--Ki Options View Controller - Select Options-->
+        <!--Ki Options View Controller - Select Factory Options-->
         <scene sceneID="IWd-R4-QjP">
             <objects>
                 <tableViewController id="Vmt-d4-dY4" customClass="VCKiOptionsViewController" sceneMemberID="viewController">
@@ -337,7 +337,7 @@
                             <outlet property="delegate" destination="Vmt-d4-dY4" id="M84-lz-2Pr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Options" id="XJr-8M-XNQ">
+                    <navigationItem key="navigationItem" title="Select Factory Options" id="XJr-8M-XNQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="boA-CD-4zV">
                             <connections>
                                 <segue destination="Lq5-EL-etS" kind="push" id="AJ7-rq-I63"/>

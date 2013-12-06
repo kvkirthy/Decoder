@@ -115,8 +115,27 @@ NSMutableData *receivedData;
     {
         imageIds = [NSString stringWithFormat:@"null"];
     }
+    
+    NSString* optionsJson = [NSString stringWithFormat:@"[]"];
+    if(_optionsData && [_optionsData count] > 0)
+    {
+        for (int i=0; i < [_optionsData count]; i++) {
+            VCKiOptionsEntity *optionsEntity = [_optionsData objectAtIndex:i];
+            if(i ==0 )
+            {
+                optionsJson = [NSString stringWithFormat:@"{Description:\"%@\", OptionCode:\"%@\"}", optionsEntity.OptionDescription, optionsEntity.OptionCode];
+            }
+            else
+            {
+                optionsJson = [NSString stringWithFormat:@"%@,{Description:\"%@\", OptionCode:\"%@\"}", optionsJson, optionsEntity.OptionDescription, optionsEntity.OptionCode];
+                
+            }
+        }
+        optionsJson = [NSString stringWithFormat:@"[%@]",optionsJson];
+    }
+    
   
-    NSString* requestObject = [NSString stringWithFormat:@"{Vin: \"%@\", StockNumber: \"%@\", Year: \"%@\", MakeId: \"%@\", ModelId: \"%@\", Model: \"%@\", Trim: \"%@\", StyleId: \"%@\", Style: \"%@\", OEMCode: \"%@\", Options:null,photoIds:[%@], ExternalColor: {Code:\"%@\", Name: \"%@\", RgbHexCode: \"%@\"}, InternalColor: {Code:\"%@\", Name: \"%@\"}}", _vehBasicData.vin, _vehBasicData.stockNumber, _vehBasicData.year, _vehBasicData.makeId, _vehBasicData.modelId, _vehBasicData.model, _taxonomyData.Trim, _taxonomyData.StyleId, _taxonomyData.Style, _taxonomyData.OEMModelCode, imageIds, _colorsData.ExternalColorCode, _colorsData.ExternalColorName, _colorsData.ExternalRgbHexCode, _colorsData.InternalColorCode, _colorsData.InternalColorName];
+    NSString* requestObject = [NSString stringWithFormat:@"{Vin: \"%@\", StockNumber: \"%@\", Year: \"%@\", MakeId: \"%@\", ModelId: \"%@\", Model: \"%@\", Trim: \"%@\", StyleId: \"%@\", Style: \"%@\", OEMCode: \"%@\", Options:%@,photoIds:[%@], ExternalColor: {Code:\"%@\", Name: \"%@\", RgbHexCode: \"%@\"}, InternalColor: {Code:\"%@\", Name: \"%@\"}}", _vehBasicData.vin, _vehBasicData.stockNumber, _vehBasicData.year, _vehBasicData.makeId, _vehBasicData.modelId, _vehBasicData.model, _taxonomyData.Trim, _taxonomyData.StyleId, _taxonomyData.Style, _taxonomyData.OEMModelCode, optionsJson, imageIds, _colorsData.ExternalColorCode, _colorsData.ExternalColorName, _colorsData.ExternalRgbHexCode, _colorsData.InternalColorCode, _colorsData.InternalColorName];
 
     
     NSData *requestData = [NSData dataWithBytes: [requestObject UTF8String] length: [requestObject length]];

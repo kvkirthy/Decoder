@@ -173,6 +173,7 @@ NSArray *_taxonomyRecords;
 
 -(void) setStringData:(NSString *)stringValue
 {
+#warning need to allow going away only after completing this.
     if(!self.vehicleData.images)
     {
         self.vehicleData.images = [[NSMutableArray alloc]init];

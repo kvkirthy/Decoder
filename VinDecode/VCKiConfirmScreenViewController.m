@@ -144,6 +144,7 @@ NSString* finalMessage;
     vehicle.vehBasicData = _basicVehicleData;
     vehicle.taxonomyData = _taxonomyData;
     vehicle.colorsData = _colorsdata;
+    vehicle.optionsData = _optionsData;
     [vehicle createVehicle];
 }
 

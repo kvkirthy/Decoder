@@ -193,7 +193,7 @@ NSMutableArray* _colorsEntityList;
     VCKiConfirmScreenViewController *scene = [segue destinationViewController];
     scene.basicVehicleData = self.vehicleBasicData;
     scene.taxonomyData = self.taxonomyEntity;
-    scene.optionsData = selectedOptions;
+    scene.optionsData = [[NSMutableArray alloc]initWithArray: selectedOptions];
     scene.colorsdata = selectedColor;
 }
 
