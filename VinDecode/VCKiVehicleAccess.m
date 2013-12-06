@@ -103,21 +103,20 @@ NSMutableData *receivedData;
         
         for (int i=0; i<[_vehBasicData.images count]; i++) {
             if (i == 0) {
-                imageIds = [NSString stringWithFormat:@"%@",[_vehBasicData.images objectAtIndex:i]];
+                imageIds = [NSString stringWithFormat:@"\"%@\"",[_vehBasicData.images objectAtIndex:i]];
             }
             else{
-                imageIds = [NSString stringWithFormat:@"%@,%@",imageIds,[_vehBasicData.images objectAtIndex:i]];
+                imageIds = [NSString stringWithFormat:@"%@,\"%@\"",imageIds,[_vehBasicData.images objectAtIndex:i]];
             }
             
         }
-        imageIds = [NSString stringWithFormat:@"[%@]",imageIds];
     }
     else
     {
         imageIds = [NSString stringWithFormat:@"null"];
     }
   
-    NSString* requestObject = [NSString stringWithFormat:@"{Vin: \"%@\", StockNumber: \"%@\", Year: \"%@\", MakeId: \"%@\", ModelId: \"%@\", Model: \"%@\", Trim: \"%@\", StyleId: \"%@\", Style: \"%@\", OEMCode: \"%@\", Options:null,photoIds:\"%@\", ExternalColor: {Code:\"%@\", Name: \"%@\", RgbHexCode: \"%@\"}, InternalColor: {Code:\"%@\", Name: \"%@\"}}", _vehBasicData.vin, _vehBasicData.stockNumber, _vehBasicData.year, _vehBasicData.makeId, _vehBasicData.modelId, _vehBasicData.model, _taxonomyData.Trim, _taxonomyData.StyleId, _taxonomyData.Style, _taxonomyData.OEMModelCode, imageIds, _colorsData.ExternalColorCode, _colorsData.ExternalColorName, _colorsData.ExternalRgbHexCode, _colorsData.InternalColorCode, _colorsData.InternalColorName];
+    NSString* requestObject = [NSString stringWithFormat:@"{Vin: \"%@\", StockNumber: \"%@\", Year: \"%@\", MakeId: \"%@\", ModelId: \"%@\", Model: \"%@\", Trim: \"%@\", StyleId: \"%@\", Style: \"%@\", OEMCode: \"%@\", Options:null,photoIds:[%@], ExternalColor: {Code:\"%@\", Name: \"%@\", RgbHexCode: \"%@\"}, InternalColor: {Code:\"%@\", Name: \"%@\"}}", _vehBasicData.vin, _vehBasicData.stockNumber, _vehBasicData.year, _vehBasicData.makeId, _vehBasicData.modelId, _vehBasicData.model, _taxonomyData.Trim, _taxonomyData.StyleId, _taxonomyData.Style, _taxonomyData.OEMModelCode, imageIds, _colorsData.ExternalColorCode, _colorsData.ExternalColorName, _colorsData.ExternalRgbHexCode, _colorsData.InternalColorCode, _colorsData.InternalColorName];
 
     
     NSData *requestData = [NSData dataWithBytes: [requestObject UTF8String] length: [requestObject length]];

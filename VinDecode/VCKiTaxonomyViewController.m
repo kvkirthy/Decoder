@@ -173,7 +173,11 @@ NSArray *_taxonomyRecords;
 
 -(void) setStringData:(NSString *)stringValue
 {
-    [self.vehicleData.images insertObject:stringValue atIndex:0];
+    if(!self.vehicleData.images)
+    {
+        self.vehicleData.images = [[NSMutableArray alloc]init];
+    }
+    [self.vehicleData.images addObject:stringValue];
 }
 
 @end
