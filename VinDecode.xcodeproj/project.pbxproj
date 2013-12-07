@@ -627,7 +627,7 @@
 				INFOPLIST_FILE = "VinDecode/VinDecode-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/VenCKi/Documents/Playground/VinDecode/ZBarSDK,
+					/Users/foeteam/Documents/Playground/Decoder/ZBarSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -644,7 +644,7 @@
 				INFOPLIST_FILE = "VinDecode/VinDecode-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/VenCKi/Documents/Playground/VinDecode/ZBarSDK,
+					/Users/foeteam/Documents/Playground/Decoder/ZBarSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

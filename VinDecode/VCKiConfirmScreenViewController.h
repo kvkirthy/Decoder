@@ -20,6 +20,7 @@
 @property NSMutableArray *optionsData;
 @property VCKiOptionsEntity *colorsdata;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *createActivity;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCreateVehicle;
 
 - (IBAction)buttonCreateNewClicked:(id)sender;
 

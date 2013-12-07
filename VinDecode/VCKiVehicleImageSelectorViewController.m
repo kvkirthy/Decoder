@@ -29,6 +29,8 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.imageUploadActivity stopAnimating];
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.vehicleAccess = [[VCKiVehicleAccess alloc]initWithObject:self];
 	self.imagePicker.delegate = self;
@@ -54,7 +56,9 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     @try{
+        [self.buttonPerformCameraAction setEnabled:NO];
         int offset = 120;
+        [self.imageUploadActivity startAnimating];
         UIImage* image = info[UIImagePickerControllerOriginalImage];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
 #warning Need to adjust by image dimentions. Need this code to be better.
@@ -84,11 +88,13 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    self.navigationItem.hidesBackButton = false;
     [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 - (IBAction)picSelectorClicked:(id)sender {
+    self.navigationItem.hidesBackButton = true;
     [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
@@ -128,16 +134,19 @@ int _imageCount = 1, _previousYPosition = 1, _previousXPosition = 1;
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData
 {
-    [self.delegate setStringData:[NSString stringWithFormat:@"%@",[returnData stringValue]]];
-#warning Incomplete implementation
-    
+    [self.buttonPerformCameraAction setEnabled:YES];
+    [self.imageUploadActivity stopAnimating];
+    self.navigationItem.hidesBackButton = false;
+    [self.delegate setStringData:[NSString stringWithFormat:@"%@",[returnData stringValue]]];    
 }
 
 // This message used for notifying user on error.
 -(void) showErrorMessage: (NSString *) errorMessage
 {
-#warning incomplete implementation
-    NSLog(@"error %@", errorMessage);
+    [self.buttonPerformCameraAction setEnabled:YES];
+    [self.imageUploadActivity stopAnimating];
+    self.navigationItem.hidesBackButton = false;
+    [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error while attempting to upload vehicle image. %@",errorMessage ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
 }
 
 @end

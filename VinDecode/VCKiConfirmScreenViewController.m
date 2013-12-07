@@ -113,6 +113,7 @@ NSString* finalMessage;
 -(void)returnDataObject:(id)returnData
 {
     finalMessage = returnData;
+    self.buttonCreateVehicle.hidden = YES;
     [self performSegueWithIdentifier:@"segueToFinalScreen" sender:self];
 }
 
@@ -127,6 +128,7 @@ NSString* finalMessage;
 
 -(void) showErrorMessage: (NSString *) errorMessage
 {
+    [self.createActivity stopAnimating];
     [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error returned %@.",errorMessage ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
     
 }

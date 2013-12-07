@@ -86,6 +86,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-an-aiV">
                                 <rect key="frame" x="3" y="139" width="314" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="11U-F5-1N2">
+                                        <rect key="frame" x="139" y="119" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -94,6 +100,7 @@
                     <connections>
                         <outlet property="buttonPerformCameraAction" destination="krj-6C-QQY" id="0YJ-bd-leO"/>
                         <outlet property="cameraPicLibSelector" destination="zY6-A3-A52" id="bjt-se-Rki"/>
+                        <outlet property="imageUploadActivity" destination="11U-F5-1N2" id="fql-1r-eVe"/>
                         <outlet property="scrollView" destination="Y1h-an-aiV" id="35U-nB-6DC"/>
                     </connections>
                 </viewController>
@@ -114,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-t1-vlL">
-                                <rect key="frame" x="0.0" y="395" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="444" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create New Vehicle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,7 +131,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-1p-OhU">
-                                <rect key="frame" x="0.0" y="65" width="320" height="322"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="376"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -155,7 +162,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-AL-UwV">
-                                <rect key="frame" x="0.0" y="401" width="320" height="20"/>
+                                <rect key="frame" x="18" y="449" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -163,6 +170,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Review Information" id="DZw-Mp-IQw"/>
                     <connections>
+                        <outlet property="buttonCreateVehicle" destination="MuN-t1-vlL" id="WMI-Nb-vaM"/>
                         <outlet property="createActivity" destination="WRD-AL-UwV" id="wLS-2B-xbF"/>
                         <outlet property="tableView" destination="gbY-1p-OhU" id="zke-O6-u7g"/>
                         <segue destination="p55-Ws-auN" kind="push" identifier="segueToFinalScreen" id="huX-r8-68J"/>
@@ -282,14 +290,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ii-VX-RZ6">
-                                <rect key="frame" x="26" y="380" width="236" height="21"/>
+                                <rect key="frame" x="26" y="415" width="236" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xG-Gg-nEj">
-                                <rect key="frame" x="20" y="216" width="280" height="136"/>
+                                <rect key="frame" x="20" y="251" width="280" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="VIN" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IU8-Xb-AMh">
@@ -319,7 +327,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co6-tE-ylG">
-                                        <rect key="frame" x="250" y="90" width="22" height="22"/>
+                                        <rect key="frame" x="258" y="92" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal">

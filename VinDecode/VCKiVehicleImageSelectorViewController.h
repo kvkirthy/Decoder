@@ -20,6 +20,7 @@
 
 - (IBAction)picSelectorClicked:(id)sender;
 - (IBAction)swapCameraSelection:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageUploadActivity;
 
 // This message used for successfull data returned from network operation.
 -(void)returnDataObject:(id)returnData;
