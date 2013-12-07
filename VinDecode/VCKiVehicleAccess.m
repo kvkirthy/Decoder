@@ -193,7 +193,7 @@ NSMutableData *receivedData;
         
         if([(NSString *)[res objectForKey:@"Vin"] isEqualToString:self.vehBasicData.vin])
         {
-            [self.caller returnDataObject:@"Congratulations, Vehicle added to inventory Successfully."];
+            [self.caller returnDataObject:@"We have a new vehicle"];
         }
         else
         {

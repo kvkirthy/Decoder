@@ -122,7 +122,7 @@ NSString* finalMessage;
 {
     [self.createActivity stopAnimating];
     VCKiFinalScreenViewController *screen = [segue destinationViewController];
-    screen.message = finalMessage;
+    screen.message =  [NSString stringWithFormat:@"%@. (%@) %@ %@.",finalMessage, _basicVehicleData.year, _basicVehicleData.make, _basicVehicleData.model];
 }
 
 

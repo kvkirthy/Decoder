@@ -49,6 +49,7 @@
 		1EBA09181847A34400AA2E1A /* VCKiConfirmScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA09171847A34400AA2E1A /* VCKiConfirmScreenViewController.m */; };
 		1EE6E74518506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6E74418506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m */; };
 		1EE6E74818509F46007E1E7A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE6E74618509F46007E1E7A /* Main_iPhone.storyboard */; };
+		1EF0294318536282007D3AEA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF0294218536282007D3AEA /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		1EE6E74418506C54007E1E7A /* VCKiVehicleImageSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKiVehicleImageSelectorViewController.m; sourceTree = "<group>"; };
 		1EE6E74718509F46007E1E7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = VinDecode/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1EE6E7491850D484007E1E7A /* VCKiControllerDataExchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCKiControllerDataExchange.h; sourceTree = "<group>"; };
+		1EF0294218536282007D3AEA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF0294318536282007D3AEA /* Social.framework in Frameworks */,
 				107A28A918530FBA00EB5402 /* libiconv.dylib in Frameworks */,
 				107A28A718530FA400EB5402 /* QuartzCore.framework in Frameworks */,
 				107A28A518530F9600EB5402 /* CoreVideo.framework in Frameworks */,
@@ -229,6 +232,7 @@
 		106BA488181CDFD000112998 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EF0294218536282007D3AEA /* Social.framework */,
 				107A28A818530FBA00EB5402 /* libiconv.dylib */,
 				107A28A618530FA400EB5402 /* QuartzCore.framework */,
 				107A28A418530F9600EB5402 /* CoreVideo.framework */,

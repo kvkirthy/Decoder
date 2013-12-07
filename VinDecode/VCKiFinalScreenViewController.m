@@ -35,4 +35,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)goSocialClicked:(id)sender {
+    UIActionSheet* actionSheet = [[UIActionSheet alloc]initWithTitle:@"Go Social" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (IBAction)parkButtonClicked:(id)sender {
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex ==0 )
+    {
+        SLComposeViewController* social = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [social setInitialText:[NSString stringWithFormat:@"%@ %@", @"Exciting Stuff!", self.message]];
+        
+        [self presentViewController:social animated:YES completion:nil];
+    }
+    
+    if(buttonIndex ==1 )
+    {
+        SLComposeViewController* social = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [social setInitialText:[NSString stringWithFormat:@"%@ %@", @"Exciting Stuff!", self.message]];
+        [self presentViewController:social animated:YES completion:nil];
+    }
+    
+}
+
 @end
