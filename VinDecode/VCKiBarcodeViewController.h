@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "VCKiDataAccessProtocol.h"
+#import "ZBarSDK.h"
 
-@interface VCKiBarcodeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, VCKiDataAccessProtocol >
-@property UIImagePickerController* imagePicker;
+@interface VCKiBarcodeViewController : UIViewController <ZBarReaderDelegate, UINavigationControllerDelegate, UITextFieldDelegate, VCKiDataAccessProtocol >
+
+@property ZBarReaderController *barcodeReader;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPerformCameraAction;

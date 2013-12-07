@@ -36,8 +36,9 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
     @try {
         [super viewDidLoad];
         [self.serviceCallStatus stopAnimating];
-        self.imagePicker = [[UIImagePickerController alloc]init];
-        self.imagePicker.delegate = self;
+        
+        self.barcodeReader = [ZBarReaderController new];
+        self.barcodeReader.delegate = self;
         self.textboxResult.delegate = self;
         self.textStockNumber.delegate = self;
         
@@ -45,9 +46,10 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
         
         [self.buttonPerformCameraAction setTitle:@"Unavilable" forState:UIControlStateDisabled];
         
-        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        if([ZBarReaderController isSourceTypeAvailable:
+            UIImagePickerControllerSourceTypeCamera])
         {
-            self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            self.barcodeReader.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
         else{
             self.buttonPerformCameraAction.enabled = NO;
@@ -81,89 +83,40 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
     return YES;
 }
 
-
--(void) postOcrData: (NSData *) imageData and: (NSString *) postData
-{
-    @try {
-
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
-        NSString *url = [NSString stringWithFormat:@"%@/%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"baseApiUrl"],[[NSUserDefaults standardUserDefaults] stringForKey:@"barcodeApiPostfix"]];
-        
-        [request setURL:[NSURL URLWithString:url]];
-        [request setHTTPMethod:@"POST"];
-        
-        NSString *boundary = @"-----------------------------7dd38a1060692";
-        NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-        [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-        [request addValue:@"text/html, application/xhtml+xml, */*" forHTTPHeaderField:@"Accept"];
-        [request addValue:@"no-cache" forHTTPHeaderField:@"Pragma"];
-        
-        NSMutableData *body = [NSMutableData data];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"\r\nContent-Disposition: form-data; name=\"caption\"" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat: @"\r\n\r\n%@",postData] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"\r\nContent-Disposition: form-data; name=\"image1\"; filename=\"ipodfile.png\""dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"\r\nContent-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[NSData dataWithData:imageData]];
-        [body appendData:[@"\r\n-------------------------------7dd38a1060692--\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        [request setHTTPBody:body];
-        
-        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            @try {
-                
-                if (data.length > 0 && !connectionError) {
-                    if ([(NSHTTPURLResponse *)response statusCode] == 200) {
-                        vehicle.vin = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                        [self.textboxResult setText:vehicle.vin];
-                        self.textControlsSection.hidden = NO;
-                        [self.serviceCallStatus stopAnimating];
-                    }
-                    else{
-                        @throw [NSException exceptionWithName:@"ServerError" reason:[NSString stringWithFormat:@"Status code from server is %ld", (long)[(NSHTTPURLResponse *)response statusCode]]  userInfo:nil];
-                    }
-                }
-                else if(connectionError){
-                    @throw [NSException exceptionWithName:@"ConnectionError" reason:[NSString stringWithFormat:@"%@", connectionError]  userInfo:nil];
-                }
-                else
-                {
-                    @throw [NSException exceptionWithName:@"UnknownError" reason:@"Invalid Response" userInfo:nil];
-                }
-            }
-            @catch (NSException *exception) {
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Gosh Error!" message:@"Error while trying to decode" delegate:nil cancelButtonTitle:@"Okay !" otherButtonTitles:nil];
-                [alert show];
-            }
-            @finally {
-                [self.serviceCallStatus stopAnimating];
-            }
-            
-            
-        }];
-    }
-    @catch (NSException *exception) {
-        [[[UIAlertView alloc]initWithTitle:@"Gosh, Error" message:[NSString stringWithFormat:@"Error while attempting to post bar code image data. %@",exception ] delegate:self cancelButtonTitle:@"Okay!" otherButtonTitles:nil, nil] show];
-    }
-    
-}
-
-
-
 - (IBAction)useCamera:(id)sender {
     self.textControlsSection.hidden = YES;
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
+
+    ZBarImageScanner *scanner = self.barcodeReader.scanner;
+    
+    // EXAMPLE: disable rarely used I2/5 to improve performance
+    [scanner setSymbology: ZBAR_I25
+                   config: ZBAR_CFG_ENABLE
+                       to: 0];
+    
+    [self presentViewController:self.barcodeReader animated:YES completion:nil];
+    
     
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     @try{
+        
+        id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+        ZBarSymbol *symbol = nil;
+        
+        // first available barcode value is fine. Only one bar code expected.
+        for(symbol in results)
+            break;
+        
+        vehicle.vin = symbol.data;
+        [self.textboxResult setText:vehicle.vin];
+        self.textControlsSection.hidden = NO;
+        //[self.serviceCallStatus stopAnimating];
+        
         _imageView.image = info[UIImagePickerControllerOriginalImage];
-        [self postOcrData: UIImageJPEGRepresentation(_imageView.image, 1.0) and:@"ocr image"];
-        [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-        [self.serviceCallStatus startAnimating];
+        [self.barcodeReader dismissViewControllerAnimated:YES completion:nil];
+        //[self.serviceCallStatus startAnimating];
     }
     @catch (NSException *exception) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Gosh Error!" message:@"Error while trying to decode" delegate:nil cancelButtonTitle:@"Got It!" otherButtonTitles:nil];
@@ -173,29 +126,30 @@ VCKiVehicleBasicDataEntity *basicDataAccess;
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+    [self.barcodeReader dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cameraLIbrarySwap:(id)sender {
     @try {
         if ([self.segmentControl selectedSegmentIndex] == 0){
-            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            
+            if([ZBarReaderController isSourceTypeAvailable:
+                UIImagePickerControllerSourceTypeCamera])
             {
-                self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                self.barcodeReader.sourceType = UIImagePickerControllerSourceTypeCamera;
                 self.buttonPerformCameraAction.enabled = YES;
                 [self.buttonPerformCameraAction setTitle:@"Tap to start camera" forState:UIControlStateNormal];
-                
+
             }
             else{
                 self.buttonPerformCameraAction.enabled = NO;
             }
-            
         }
         else
         {
             if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
             {
-                self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                self.barcodeReader.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 self.buttonPerformCameraAction.enabled = YES;
                 [self.buttonPerformCameraAction setTitle:@"Tap to go to Photo Library" forState:UIControlStateNormal];
             }

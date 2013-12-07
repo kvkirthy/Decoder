@@ -1,104 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="U0O-4f-41R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wob-bV-xQJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Ki Ocr View Controller - VIN Text-->
-        <scene sceneID="F16-sP-epo">
-            <objects>
-                <viewController id="jVG-by-sbK" customClass="VCKiOcrViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hXr-fh-he4"/>
-                        <viewControllerLayoutGuide type="bottom" id="gPN-M8-ByQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="B3S-WZ-99A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7U-h9-cG9">
-                                <rect key="frame" x="20" y="238" width="280" height="156"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uej-sF-Ie0">
-                                <rect key="frame" x="54" y="63" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Tap to start camera">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="useCamera:" destination="jVG-by-sbK" eventType="touchUpInside" id="qHt-tL-4Wr"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="VIN" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gu9-Iy-d3y">
-                                <rect key="frame" x="20" y="115" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ytX-3e-pqE">
-                                <rect key="frame" x="20" y="27" width="280" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Camera"/>
-                                    <segment title="Picture Library"/>
-                                </segments>
-                                <connections>
-                                    <action selector="cameraLIbrarySwap:" destination="jVG-by-sbK" eventType="valueChanged" id="L3X-Xa-vna"/>
-                                </connections>
-                            </segmentedControl>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4LL-D7-oz4">
-                                <rect key="frame" x="272" y="68" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Stock Number" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sL5-Hh-q3J">
-                                <rect key="frame" x="20" y="175" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stock Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-P1-UK8">
-                                <rect key="frame" x="26" y="153" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-fb-iHx">
-                                <rect key="frame" x="26" y="95" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqf-Zd-T59">
-                                <rect key="frame" x="149" y="402" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonGoToTaxonomyClick:" destination="jVG-by-sbK" eventType="touchUpInside" id="ka9-rq-5eS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="VIN Text" image="162-receipt.png" id="xO9-L8-adE"/>
-                    <connections>
-                        <outlet property="buttonPerformCameraAction" destination="uej-sF-Ie0" id="CRr-Pw-B3N"/>
-                        <outlet property="imageView" destination="V7U-h9-cG9" id="GIz-CW-Ljz"/>
-                        <outlet property="segmentControl" destination="ytX-3e-pqE" id="C9i-vc-9mw"/>
-                        <outlet property="serviceCallStatus" destination="4LL-D7-oz4" id="Pzd-Zv-zeF"/>
-                        <outlet property="textboxResult" destination="gu9-Iy-d3y" id="lZd-Ix-QWD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j4V-UO-kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-538" y="65"/>
-        </scene>
         <!--Ki Taxonomy View Controller - Select Trim/Style/OEM-->
         <scene sceneID="rx1-dj-zYx">
             <objects>
@@ -349,25 +254,6 @@
             </objects>
             <point key="canvasLocation" x="1126" y="734"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="TLC-lg-GFh">
-            <objects>
-                <tabBarController definesPresentationContext="YES" id="U0O-4f-41R" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="nSf-Vm-3VY">
-                        <rect key="frame" x="129" y="330" width="163" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="jVG-by-sbK" kind="relationship" relationship="viewControllers" id="LFy-K7-jqI"/>
-                        <segue destination="wob-bV-xQJ" kind="relationship" relationship="viewControllers" id="0eg-uz-ZH5"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zjT-MN-uMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1072" y="392"/>
-        </scene>
         <!--Ki Barcode View Controller-->
         <scene sceneID="dNP-m3-70J">
             <objects>
@@ -392,7 +278,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="useCamera:" destination="jVG-by-sbK" eventType="touchUpInside" id="E1U-5u-PZb"/>
                                     <action selector="useCamera:" destination="7la-aU-Ud2" eventType="touchUpInside" id="mg6-Ul-ZSy"/>
                                 </connections>
                             </button>
@@ -464,7 +349,6 @@
                                 <segment title="Picture Library"/>
                             </segments>
                             <connections>
-                                <action selector="cameraLIbrarySwap:" destination="jVG-by-sbK" eventType="valueChanged" id="Cnf-XB-Eck"/>
                                 <action selector="cameraLIbrarySwap:" destination="7la-aU-Ud2" eventType="valueChanged" id="uRI-tU-KtZ"/>
                             </connections>
                         </segmentedControl>
@@ -507,7 +391,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="162-receipt.png" width="17" height="23"/>
         <image name="195-barcode.png" width="24" height="18"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

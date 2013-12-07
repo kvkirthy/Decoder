@@ -73,44 +73,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VinDecode/VCKiBarcodeViewController.m"
-            timestampString = "407873140.745673"
+            filePath = "VinDecode/VCKiBarCodeLocalViewController.m"
+            timestampString = "408097624.644301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-postOcrData:and:"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-buttonClicked:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[VCKiBarcodeViewController postOcrData:and:]"
-                  moduleName = "VinDecode"
-                  urlString = "file:///Users/VenCKi/Documents/Playground/VinDecode/VinDecode/VCKiBarcodeViewController.m"
-                  timestampString = "407873042.701684"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "89">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[VCKiBarcodeViewController postOcrData:and:]"
-                  moduleName = "VinDecode"
-                  urlString = "file:///Users/VenCKi/Documents/Playground/VinDecode/VinDecode/VCKiBarcodeViewController.m"
-                  timestampString = "407873042.702546"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "3051">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VinDecode/VCKiBarCodeLocalViewController.m"
+            timestampString = "408097487.318554"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-buttonClicked:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VinDecode/VCKiBarCodeLocalViewController.m"
+            timestampString = "408097512.61233"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-buttonClicked:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
